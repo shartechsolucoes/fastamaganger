@@ -1,23 +1,22 @@
 import './styles.css';
 import DynamicTable from '../../components/List/index.tsx';
+import Card from '../../components/Cards/Basic';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-type ProtocolsGroup = {
-	number: number;
-	date: string;
+type CompanyGroup = {
+	name: string;
+	logo: string;
 	adress: string;
 	neighborhood: string;
-	serviceType: string;
-	priority: string;
 	status: number;
 };
 
-const initialClasses: ProtocolsGroup[] = [
-	{ number: 65828, date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' ,status: 1 },
-	{ number: 65859, date: "21/06/2025", serviceType: 'Iluminação', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
-	{ number: 65867, date: "21/06/2025", serviceType: 'Zeladoria', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
-	{ number: 65888, date: "21/06/2025", serviceType: 'Poda de Arvore', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
+const initialClasses: CompanyGroup[] = [
+	{ name: 'Shartech Soluções', logo: 'https://i.pravatar.cc/50?u=1' , date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ name: 'Prefeitura de Registro', logo: 'https://i.pravatar.cc/50?u=1', date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ name: 'Prefeitura de Cajati', logo: 'https://i.pravatar.cc/50?u=1',date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ name: 'Prefeitura de Ibaiti', logo: 'https://i.pravatar.cc/50?u=1', date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
 ];
 
 type ActionsMenuProps = {
@@ -53,7 +52,7 @@ export default function ClassListPage() {
 	const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
 	const [formData, setFormData] = useState<ProtocolsGroup>({
-		number: 0,
+		name: '',
 		date: new Date().getFullYear(),
 		course: '',
 		galleryCount: 0,
@@ -67,7 +66,7 @@ export default function ClassListPage() {
 			setEditingIndex(index);
 		} else {
 			setFormData({
-				number: '',
+				name: '',
 				year: new Date().getFullYear(),
 				shift: '',
 				course: '',
@@ -102,26 +101,34 @@ export default function ClassListPage() {
 
 	// Colunas com Ações mapeadas fora
 	const columns = [
+		
 		{
-			header: 'Protocolo',
-			accessor: (item: ProtocolsGroup) => (
-				<Link to={`/protocols/12`} style={{ textDecoration: 'none', color: '#1976d2' }}>
-					{item.number}
-				</Link>
+			header: 'Item',
+			accessor: (item: CompanyGroup) => (
+				<div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+					<div className="avatar avatar-s">
+						<img
+							src={item.logo || 'https://via.placeholder.com/40'}
+							alt={item.name}
+							className=""
+						/>
+					</div>
+					<Link to={`/student/${encodeURIComponent(item.name)}`} className=" ">
+						{item.name}
+					</Link>
+				</div>
 			),
-			sortable: true,
 		},
 		{ header: 'Data', accessor: (item: ProtocolsGroup) => item.date, sortable: true },
 		{ header: 'Serviço', accessor: (item: ProtocolsGroup) => item.serviceType, sortable: true },
 		{ header: 'Endereço', accessor: (item: ProtocolsGroup) => item.adress, sortable: true },
 		{ header: 'Bairro', accessor: (item: ProtocolsGroup) => item.neighborhood, sortable: true },
 		{ header: 'Status', accessor: (item: ProtocolsGroup) => item.status, sortable: true },
-		{ header: 'Prioridade', accessor: (item: ProtocolsGroup) => item.priority, sortable: true },
 
 		{
 			header: 'Ações',
 			accessor: (item: ProtocolsGroup) => {
-				const index = classes.findIndex(i => i.number === item.number);
+				const index = classes.findIndex(i => i.name === item.name);
 				return (
 					<ActionsMenu
 						onEdit={() => handleOpenModal(index)}
@@ -133,11 +140,11 @@ export default function ClassListPage() {
 	];
 
 	return (
-		<div>
+		<div className="row">
 			<div className="header-page row">
 				<div className='col-3'>
-					<h2 className='title-page'>Turmas</h2>
-					<p className='url-page'>Dashboard / Turmas</p>
+					<h2 className='title-page'>Estoque</h2>
+					<p className='url-page'>Dashboard / Estoque</p>
 				</div>
 				<div className='col-9 d-flex justify-content-end'>
 					<button className="btn btn-primary btn-md" onClick={() => handleOpenModal()}>
@@ -145,8 +152,20 @@ export default function ClassListPage() {
 					</button>
 				</div>
 			</div>
+			<div className="col-3 mt-4">
+				<Card title='Produtos' info='estoque' content='58' footer='12 esgotando'/>
+			</div>
+			<div className="col-3 mt-4">
+				<Card title='Usados essa Semana' info='estoque' content='20' footer='12 esgotando'/>
+			</div>
+			<div className="col-3 mt-4">
+				<Card title='Kits' info='estoque' content='58' footer='12 esgotando'/>
+			</div>
+			<div className="col-3 mt-4">
+				<Card title='Produtos' info='estoque' content='58' footer='12 esgotando'/>
+			</div>
 
-			<div className="col-12">
+			<div className="col-12 mt-4">
 				<div className='card'>
 					<DynamicTable data={classes} columns={columns} />
 				</div>

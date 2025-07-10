@@ -1,23 +1,21 @@
 import './styles.css';
-import DynamicTable from '../../components/List/index.tsx';
+import DynamicTable from '../../../components/List/index.tsx';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-type ProtocolsGroup = {
-	number: number;
+type BlackListGroup = {
+	name: string;
+	cpf: string;
 	date: string;
-	adress: string;
-	neighborhood: string;
-	serviceType: string;
-	priority: string;
-	status: number;
+	requests: number;
+	status: string;
 };
 
-const initialClasses: ProtocolsGroup[] = [
-	{ number: 65828, date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' ,status: 1 },
-	{ number: 65859, date: "21/06/2025", serviceType: 'Iluminação', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
-	{ number: 65867, date: "21/06/2025", serviceType: 'Zeladoria', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
-	{ number: 65888, date: "21/06/2025", serviceType: 'Poda de Arvore', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
+const initialClasses: BlackListGroup[] = [
+	{ name: 'Edson Rodrigues', date:'21/06/2025', cpf: '999.999.999-00', requests: 20,  status: 'Bloqueado' },
+	{ name: 'Luciano Silva', date:'12/06/2025', cpf: '999.999.999-00', requests: 5,  status: 'Liberado' },
+	{ name: 'Alexandre ', date:'08/06/2025', cpf: '999.999.999-00',  requests: 9, status: 'Liberado' },
+	{ name: 'Wagner Oliveira Prestes', date:'02/06/2025',cpf: '999.999.999-00', requests: 25,  status: 'Bloqueado' },
 ];
 
 type ActionsMenuProps = {
@@ -53,7 +51,7 @@ export default function ClassListPage() {
 	const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
 	const [formData, setFormData] = useState<ProtocolsGroup>({
-		number: 0,
+		number: '',
 		date: new Date().getFullYear(),
 		course: '',
 		galleryCount: 0,
@@ -67,7 +65,7 @@ export default function ClassListPage() {
 			setEditingIndex(index);
 		} else {
 			setFormData({
-				number: '',
+				name: '',
 				year: new Date().getFullYear(),
 				shift: '',
 				course: '',
@@ -103,25 +101,23 @@ export default function ClassListPage() {
 	// Colunas com Ações mapeadas fora
 	const columns = [
 		{
-			header: 'Protocolo',
-			accessor: (item: ProtocolsGroup) => (
+			header: 'Nome',
+			accessor: (item: BlackListGroup) => (
 				<Link to={`/protocols/12`} style={{ textDecoration: 'none', color: '#1976d2' }}>
-					{item.number}
+					{item.name}
 				</Link>
 			),
 			sortable: true,
 		},
-		{ header: 'Data', accessor: (item: ProtocolsGroup) => item.date, sortable: true },
-		{ header: 'Serviço', accessor: (item: ProtocolsGroup) => item.serviceType, sortable: true },
-		{ header: 'Endereço', accessor: (item: ProtocolsGroup) => item.adress, sortable: true },
-		{ header: 'Bairro', accessor: (item: ProtocolsGroup) => item.neighborhood, sortable: true },
-		{ header: 'Status', accessor: (item: ProtocolsGroup) => item.status, sortable: true },
-		{ header: 'Prioridade', accessor: (item: ProtocolsGroup) => item.priority, sortable: true },
+		{ header: 'CPF', accessor: (item: BlackListGroup) => item.cpf, sortable: true },
+		{ header: 'Data', accessor: (item: BlackListGroup) => item.date, sortable: true },
+		{ header: 'Solicitações', accessor: (item: BlackListGroup) => item.requests, sortable: true },
+		{ header: 'Status', accessor: (item: BlackListGroup) => item.status, sortable: true },
 
 		{
 			header: 'Ações',
-			accessor: (item: ProtocolsGroup) => {
-				const index = classes.findIndex(i => i.number === item.number);
+			accessor: (item: BlackListGroup) => {
+				const index = classes.findIndex(i => i.name === item.name);
 				return (
 					<ActionsMenu
 						onEdit={() => handleOpenModal(index)}

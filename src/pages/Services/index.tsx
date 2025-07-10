@@ -2,6 +2,8 @@ import './styles.css';
 import DynamicTable from '../../components/List/index.tsx';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import {FaPhotoVideo} from "react-icons/fa";
+import {IoTimeSharp} from "react-icons/io5";
 
 type ProtocolsGroup = {
 	number: number;
@@ -9,15 +11,14 @@ type ProtocolsGroup = {
 	adress: string;
 	neighborhood: string;
 	serviceType: string;
-	priority: string;
 	status: number;
 };
 
-const initialClasses: ProtocolsGroup[] = [
-	{ number: 65828, date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' ,status: 1 },
-	{ number: 65859, date: "21/06/2025", serviceType: 'Iluminação', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
-	{ number: 65867, date: "21/06/2025", serviceType: 'Zeladoria', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
-	{ number: 65888, date: "21/06/2025", serviceType: 'Poda de Arvore', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", priority:'Urgente' , status: 1 },
+const initialClasses: ClassGroup[] = [
+	{ number: '65828', date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ number: '65859', date: "21/06/2025", serviceType: 'Iluminação', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ number: '65867', date: "21/06/2025", serviceType: 'Zeladoria', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ number: '65888', date: "21/06/2025", serviceType: 'Poda de Arvore', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
 ];
 
 type ActionsMenuProps = {
@@ -53,7 +54,7 @@ export default function ClassListPage() {
 	const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
 	const [formData, setFormData] = useState<ProtocolsGroup>({
-		number: 0,
+		number: '',
 		date: new Date().getFullYear(),
 		course: '',
 		galleryCount: 0,
@@ -67,7 +68,7 @@ export default function ClassListPage() {
 			setEditingIndex(index);
 		} else {
 			setFormData({
-				number: '',
+				name: '',
 				year: new Date().getFullYear(),
 				shift: '',
 				course: '',
@@ -116,12 +117,11 @@ export default function ClassListPage() {
 		{ header: 'Endereço', accessor: (item: ProtocolsGroup) => item.adress, sortable: true },
 		{ header: 'Bairro', accessor: (item: ProtocolsGroup) => item.neighborhood, sortable: true },
 		{ header: 'Status', accessor: (item: ProtocolsGroup) => item.status, sortable: true },
-		{ header: 'Prioridade', accessor: (item: ProtocolsGroup) => item.priority, sortable: true },
 
 		{
 			header: 'Ações',
 			accessor: (item: ProtocolsGroup) => {
-				const index = classes.findIndex(i => i.number === item.number);
+				const index = classes.findIndex(i => i.name === item.name);
 				return (
 					<ActionsMenu
 						onEdit={() => handleOpenModal(index)}

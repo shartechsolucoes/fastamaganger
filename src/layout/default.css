@@ -851,6 +851,7 @@ html:not(.layout-menu-collapsed) .bg-menu-theme .menu-inner .menu-item .menu-lin
     justifyContent: space-between;
     alignItems: center;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .header-page h2.title-page{

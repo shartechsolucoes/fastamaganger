@@ -2,9 +2,16 @@ import './login.css';
 function Landing() {
 	return (
 		<>
-			<div className='container'>
+			<div className='container landingPage'>
 				<nav className="navbar navbar-expand-lg navbar-light bg-light">
-					<a className="navbar-brand" href="#">FastMananger</a>
+					<a className="navbar-brand" href="#">
+						<div className="app-brand d-block">
+							<a href="#" className="d-block">
+								<p>Fast</p>
+								<p className='induca'>Mananger</p>
+							</a>
+						</div>
+					</a>
 					<button className="navbar-toggler" type="button" data-toggle="collapse"
 							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 							aria-expanded="false" aria-label="Toggle navigation">

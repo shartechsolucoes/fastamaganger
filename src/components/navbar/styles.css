@@ -1,0 +1,31 @@
+.layout-navbar {
+  background-color: var(--background-secundary);
+  width: 100% !important;
+  padding: 20px;
+  border-left: 1px solid var(--background-primary);
+  margin: 20px;
+  border-radius: 15px;
+}
+
+.user {
+  margin-left: 20px;
+  padding: 4px;
+  position: fixed;
+}
+
+.user p,
+.user a {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.drop-menu {
+  right: 0 !important;
+  position: absolute;
+}
+
+.hellow{
+  font-size: 16px;
+  font-weight: bolder;
+}

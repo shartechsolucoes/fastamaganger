@@ -1,5 +1,4 @@
 import './styles.css';
-import DynamicTable from '../../../components/List';
 
 export default function ClassListPage() {
 

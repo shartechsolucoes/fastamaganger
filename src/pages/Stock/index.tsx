@@ -4,7 +4,7 @@ import Card from '../../components/Cards/Basic';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-type CompanyGroup = {
+type StockGroup = {
 	name: string;
 	logo: string;
 	adress: string;
@@ -12,11 +12,11 @@ type CompanyGroup = {
 	status: number;
 };
 
-const initialClasses: CompanyGroup[] = [
-	{ name: 'Shartech Soluções', logo: 'https://i.pravatar.cc/50?u=1' , date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ name: 'Prefeitura de Registro', logo: 'https://i.pravatar.cc/50?u=1', date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ name: 'Prefeitura de Cajati', logo: 'https://i.pravatar.cc/50?u=1',date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ name: 'Prefeitura de Ibaiti', logo: 'https://i.pravatar.cc/50?u=1', date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+const initialClasses: StockGroup[] = [
+	{ name: 'Shartech Soluções', logo: 'https://i.pravatar.cc/50?u=1' , adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ name: 'Prefeitura de Registro', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ name: 'Prefeitura de Cajati', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ name: 'Prefeitura de Ibaiti', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
 ];
 
 type ActionsMenuProps = {
@@ -47,52 +47,7 @@ function ActionsMenu({ onEdit, onDelete }: ActionsMenuProps) {
 }
 
 export default function ClassListPage() {
-	const [classes, setClasses] = useState<ProtocolsGroup[]>(initialClasses);
-	const [modalOpen, setModalOpen] = useState(false);
-	const [editingIndex, setEditingIndex] = useState<number | null>(null);
-
-	const [formData, setFormData] = useState<ProtocolsGroup>({
-		name: '',
-		date: new Date().getFullYear(),
-		course: '',
-		galleryCount: 0,
-		shift: '',
-		studentsCount: 0,
-	});
-
-	const handleOpenModal = (index?: number) => {
-		if (index !== undefined) {
-			setFormData(classes[index]);
-			setEditingIndex(index);
-		} else {
-			setFormData({
-				name: '',
-				year: new Date().getFullYear(),
-				shift: '',
-				course: '',
-				galleryCount: 0,
-				studentsCount: 0,
-			});
-			setEditingIndex(null);
-		}
-		setModalOpen(true);
-	};
-
-	const handleCloseModal = () => {
-		setModalOpen(false);
-		setEditingIndex(null);
-	};
-
-	const handleSave = () => {
-		const updatedClasses = [...classes];
-		if (editingIndex !== null) {
-			updatedClasses[editingIndex] = formData;
-		} else {
-			updatedClasses.push(formData);
-		}
-		setClasses(updatedClasses);
-		handleCloseModal();
-	};
+	const [classes, setClasses] = useState<StockGroup[]>(initialClasses);
 
 	const handleDelete = (index: number) => {
 		const updated = classes.filter((_, i) => i !== index);
@@ -104,7 +59,7 @@ export default function ClassListPage() {
 		
 		{
 			header: 'Item',
-			accessor: (item: CompanyGroup) => (
+			accessor: (item: StockGroup) => (
 				<div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
 					<div className="avatar avatar-s">
 						<img
@@ -119,19 +74,17 @@ export default function ClassListPage() {
 				</div>
 			),
 		},
-		{ header: 'Data', accessor: (item: ProtocolsGroup) => item.date, sortable: true },
-		{ header: 'Serviço', accessor: (item: ProtocolsGroup) => item.serviceType, sortable: true },
-		{ header: 'Endereço', accessor: (item: ProtocolsGroup) => item.adress, sortable: true },
-		{ header: 'Bairro', accessor: (item: ProtocolsGroup) => item.neighborhood, sortable: true },
-		{ header: 'Status', accessor: (item: ProtocolsGroup) => item.status, sortable: true },
+		{ header: 'Endereço', accessor: (item: StockGroup) => item.adress, sortable: true },
+		{ header: 'Bairro', accessor: (item: StockGroup) => item.neighborhood, sortable: true },
+		{ header: 'Status', accessor: (item: StockGroup) => item.status, sortable: true },
 
 		{
 			header: 'Ações',
-			accessor: (item: ProtocolsGroup) => {
+			accessor: (item: StockGroup) => {
 				const index = classes.findIndex(i => i.name === item.name);
 				return (
 					<ActionsMenu
-						onEdit={() => handleOpenModal(index)}
+						onEdit={() => ''}
 						onDelete={() => handleDelete(index)}
 					/>
 				);
@@ -147,7 +100,7 @@ export default function ClassListPage() {
 					<p className='url-page'>Dashboard / Estoque</p>
 				</div>
 				<div className='col-9 d-flex justify-content-end'>
-					<button className="btn btn-primary btn-md" onClick={() => handleOpenModal()}>
+					<button className="btn btn-primary btn-md" onClick={() => ''}>
 						+ Adicionar
 					</button>
 				</div>
@@ -170,50 +123,6 @@ export default function ClassListPage() {
 					<DynamicTable data={classes} columns={columns} />
 				</div>
 			</div>
-			{modalOpen && (
-				<div className="modal-backdrop">
-					<div className="modal-content">
-						<h3>{editingIndex !== null ? 'Editar Turma' : 'Nova Turma'}</h3>
-						<div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-							<input
-								type="text"
-								placeholder="Nome da Turma"
-								value={formData.name}
-								onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-							/>
-							<input
-								type="number"
-								placeholder="Ano"
-								value={formData.year}
-								onChange={(e) => setFormData({ ...formData, year: Number(e.target.value) })}
-							/>
-							<input
-								type="text"
-								placeholder="Turno"
-								value={formData.shift}
-								onChange={(e) => setFormData({ ...formData, shift: e.target.value })}
-							/>
-							<input
-								type="text"
-								placeholder="Curso"
-								value={formData.course}
-								onChange={(e) => setFormData({ ...formData, shift: e.target.value })}
-							/>
-							<input
-								type="number"
-								placeholder="Qtd. Alunos"
-								value={formData.studentsCount}
-								onChange={(e) => setFormData({ ...formData, studentsCount: Number(e.target.value) })}
-							/>
-
-							<div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
-								<button onClick={handleSave}>Salvar</button>
-								<button onClick={handleCloseModal}>Cancelar</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			)}
 		</div>
 	);
 }

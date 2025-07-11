@@ -14,10 +14,10 @@ type CompanyGroup = {
 };
 
 const initialClasses: CompanyGroup[] = [
-	{ id: 1, name: 'Shartech Soluções', phone:'(41) 99541-9995',logo: 'https://i.pravatar.cc/50?u=1' , serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ id: 2, name: 'Prefeitura de Registro', phone:'(41) 99541-9995', logo: 'https://i.pravatar.cc/50?u=1', serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ id: 3, name: 'Prefeitura de Cajati', phone:'(41) 99541-9995', logo: 'https://i.pravatar.cc/50?u=1', serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ id: 4, name: 'Prefeitura de Ibaiti', phone:'(41) 99541-9995', logo: 'https://i.pravatar.cc/50?u=1', serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ id: 1, name: 'Shartech Soluções', phone:'(41) 99541-9995',logo: 'https://i.pravatar.cc/50?u=1' , adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ id: 2, name: 'Prefeitura de Registro', phone:'(41) 99541-9995', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ id: 3, name: 'Prefeitura de Cajati', phone:'(41) 99541-9995', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ id: 4, name: 'Prefeitura de Ibaiti', phone:'(41) 99541-9995', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
 ];
 
 type ActionsMenuProps = {
@@ -49,51 +49,6 @@ function ActionsMenu({ onEdit, onDelete }: ActionsMenuProps) {
 
 export default function ClassListPage() {
 	const [classes, setClasses] = useState<CompanyGroup[]>(initialClasses);
-	const [modalOpen, setModalOpen] = useState(false);
-	const [editingIndex, setEditingIndex] = useState<number | null>(null);
-
-	const [formData, setFormData] = useState<CompanyGroup>({
-		name: '',
-		date: new Date().getFullYear(),
-		course: '',
-		galleryCount: 0,
-		shift: '',
-		studentsCount: 0,
-	});
-
-	const handleOpenModal = (index?: number) => {
-		if (index !== undefined) {
-			setFormData(classes[index]);
-			setEditingIndex(index);
-		} else {
-			setFormData({
-				name: '',
-				year: new Date().getFullYear(),
-				shift: '',
-				course: '',
-				galleryCount: 0,
-				studentsCount: 0,
-			});
-			setEditingIndex(null);
-		}
-		setModalOpen(true);
-	};
-
-	const handleCloseModal = () => {
-		setModalOpen(false);
-		setEditingIndex(null);
-	};
-
-	const handleSave = () => {
-		const updatedClasses = [...classes];
-		if (editingIndex !== null) {
-			updatedClasses[editingIndex] = formData;
-		} else {
-			updatedClasses.push(formData);
-		}
-		setClasses(updatedClasses);
-		handleCloseModal();
-	};
 
 	const handleDelete = (index: number) => {
 		const updated = classes.filter((_, i) => i !== index);
@@ -120,7 +75,6 @@ export default function ClassListPage() {
 				</div>
 			),
 		},
-		{ header: 'Serviço', accessor: (item: CompanyGroup) => item.serviceType, sortable: true },
 		{ header: 'Endereço', accessor: (item: CompanyGroup) => item.adress, sortable: true },
 		{ header: 'Bairro', accessor: (item: CompanyGroup) => item.neighborhood, sortable: true },
 		{ header: 'Status', accessor: (item: CompanyGroup) => item.status, sortable: true },
@@ -131,13 +85,17 @@ export default function ClassListPage() {
 				const index = classes.findIndex(i => i.name === item.name);
 				return (
 					<ActionsMenu
-						onEdit={() => handleOpenModal(index)}
+						onEdit={() => ''}
 						onDelete={() => handleDelete(index)}
 					/>
 				);
 			},
 		},
 	];
+
+	function handleOpenModal() {
+
+	}
 
 	return (
 		<>

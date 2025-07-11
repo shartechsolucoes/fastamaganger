@@ -49,51 +49,6 @@ function ActionsMenu({ onEdit, onDelete }: ActionsMenuProps) {
 
 export default function ClassListPage() {
 	const [classes, setClasses] = useState<ProtocolsGroup[]>(initialClasses);
-	const [modalOpen, setModalOpen] = useState(false);
-	const [editingIndex, setEditingIndex] = useState<number | null>(null);
-
-	const [formData, setFormData] = useState<ProtocolsGroup>({
-		number: 0,
-		date: new Date().getFullYear(),
-		course: '',
-		galleryCount: 0,
-		shift: '',
-		studentsCount: 0,
-	});
-
-	const handleOpenModal = (index?: number) => {
-		if (index !== undefined) {
-			setFormData(classes[index]);
-			setEditingIndex(index);
-		} else {
-			setFormData({
-				number: '',
-				year: new Date().getFullYear(),
-				shift: '',
-				course: '',
-				galleryCount: 0,
-				studentsCount: 0,
-			});
-			setEditingIndex(null);
-		}
-		setModalOpen(true);
-	};
-
-	const handleCloseModal = () => {
-		setModalOpen(false);
-		setEditingIndex(null);
-	};
-
-	const handleSave = () => {
-		const updatedClasses = [...classes];
-		if (editingIndex !== null) {
-			updatedClasses[editingIndex] = formData;
-		} else {
-			updatedClasses.push(formData);
-		}
-		setClasses(updatedClasses);
-		handleCloseModal();
-	};
 
 	const handleDelete = (index: number) => {
 		const updated = classes.filter((_, i) => i !== index);
@@ -124,7 +79,7 @@ export default function ClassListPage() {
 				const index = classes.findIndex(i => i.number === item.number);
 				return (
 					<ActionsMenu
-						onEdit={() => handleOpenModal(index)}
+						onEdit={() => ''}
 						onDelete={() => handleDelete(index)}
 					/>
 				);
@@ -140,7 +95,7 @@ export default function ClassListPage() {
 					<p className='url-page'>Dashboard / Protocolo</p>
 				</div>
 				<div className='col-9 d-flex justify-content-end'>
-					<button className="btn btn-primary btn-md" onClick={() => handleOpenModal()}>
+					<button className="btn btn-primary btn-md" onClick={() => ""}>
 						+ Adicionar
 					</button>
 				</div>
@@ -151,50 +106,6 @@ export default function ClassListPage() {
 					<DynamicTable data={classes} columns={columns} />
 				</div>
 			</div>
-			{modalOpen && (
-				<div className="modal-backdrop">
-					<div className="modal-content">
-						<h3>{editingIndex !== null ? 'Editar Turma' : 'Nova Turma'}</h3>
-						<div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-							<input
-								type="text"
-								placeholder="Nome da Turma"
-								value={formData.name}
-								onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-							/>
-							<input
-								type="number"
-								placeholder="Ano"
-								value={formData.year}
-								onChange={(e) => setFormData({ ...formData, year: Number(e.target.value) })}
-							/>
-							<input
-								type="text"
-								placeholder="Turno"
-								value={formData.shift}
-								onChange={(e) => setFormData({ ...formData, shift: e.target.value })}
-							/>
-							<input
-								type="text"
-								placeholder="Curso"
-								value={formData.course}
-								onChange={(e) => setFormData({ ...formData, shift: e.target.value })}
-							/>
-							<input
-								type="number"
-								placeholder="Qtd. Alunos"
-								value={formData.studentsCount}
-								onChange={(e) => setFormData({ ...formData, studentsCount: Number(e.target.value) })}
-							/>
-
-							<div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
-								<button onClick={handleSave}>Salvar</button>
-								<button onClick={handleCloseModal}>Cancelar</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			)}
 		</div>
 	);
 }

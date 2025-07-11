@@ -1,0 +1,15 @@
+@charset "UTF-8";
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: unset !important;
+}
+.destaque{
+    position: relative;
+    background: #334a67;
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    border-radius: 20px;
+    color: white;
+}

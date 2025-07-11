@@ -1,9 +1,9 @@
-import './login.css';
+import './landing.css';
 function Landing() {
 	return (
 		<>
 			<div className='container landingPage'>
-				<nav className="navbar navbar-expand-lg navbar-light bg-light">
+				<nav className="navbar navbar-expand-lg">
 					<a className="navbar-brand" href="#">
 						<div className="app-brand d-block">
 							<a href="#" className="d-block">
@@ -18,7 +18,7 @@ function Landing() {
 						<span className="navbar-toggler-icon"></span>
 					</button>
 
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<div className="collapse navbar-collapse d-flex justify-content-end gap-3" id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item active">
 								<a className="nav-link" href="#">Home</a>
@@ -38,32 +38,33 @@ function Landing() {
 							<li className="nav-item">
 								<a className="nav-link" href="#">Protocolos</a>
 							</li>
+							<li className="nav-item">
+								<a className="btn btn-outline-success my-2 my-sm-0" href='register'>Cadastrar</a>
+							</li>
+							<li className="nav-item">
+								<a className="btn btn-outline-success my-2 my-sm-0" href='login'>Login</a>
+							</li>
 						</ul>
-						<form className="form-inline my-2 my-lg-0">
-							<a className="btn btn-outline-success my-2 my-sm-0" href='register'>Cadastrar</a>
-							<a className="btn btn-outline-success my-2 my-sm-0" href='login'>Login</a>
-						</form>
 					</div>
 				</nav>
-				<div className="row mt-4 d-flex justify-content-center">
-					<div className="col-8">
-						<h1>Gestão Inteligente para Serviços Urbanos</h1>
-					</div>
-				</div>
-				<div className="row mt-4 d-flex justify-content-center">
-					<div className="col-6 text-center">
-						<h1 className='title'>Clientes</h1>
-						<p>O Sistema de Gerenciamento de Ordens de Serviço tem como objetivo principal modernizar e otimizar a gestão de serviços públicos como poda de árvores, iluminação pública, esgoto e limpeza urbana.
+				<section className="mt-4 destaque d-flex justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+					<div className="row w-100 justify-content-center">
+						<div className="col-8 text-center">
+							<h1 className="text-white">Gestão Inteligente para Serviços Urbanos</h1>
+							<p>O Sistema de Gerenciamento de Ordens de Serviço tem como objetivo principal modernizar e otimizar a gestão de serviços públicos como poda de árvores, iluminação pública, esgoto e limpeza urbana.
 
-							A proposta é garantir agilidade, rastreabilidade, organização e transparência em todo o processo — desde o recebimento da solicitação até a conclusão do serviço.</p>
+								A proposta é garantir agilidade, rastreabilidade, organização e transparência em todo o processo — desde o recebimento da solicitação até a conclusão do serviço.</p>
+
+						</div>
 					</div>
-				</div>
+				</section>
+
 				<div className="row mt-4">
 					<div className="col-3 text-center">
 						Iluminação Pública<br/>
 						Esgoto e Drenagem
 					</div>
-					<div className="col-6 text-center">
+					<div className="col-6 text-center ">
 						Imagem do APP
 					</div>
 					<div className="col-3 text-center">

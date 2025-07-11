@@ -2,23 +2,21 @@ import './styles.css';
 import DynamicTable from '../../components/List/index.tsx';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import {FaPhotoVideo} from "react-icons/fa";
-import {IoTimeSharp} from "react-icons/io5";
 
-type ProtocolsGroup = {
-	number: number;
+type ServicesGroup = {
+	numberProtocol: number;
 	date: string;
 	adress: string;
 	neighborhood: string;
 	serviceType: string;
-	status: number;
+	status: string;
 };
 
-const initialClasses: ClassGroup[] = [
-	{ number: '65828', date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ number: '65859', date: "21/06/2025", serviceType: 'Iluminação', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ number: '65867', date: "21/06/2025", serviceType: 'Zeladoria', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ number: '65888', date: "21/06/2025", serviceType: 'Poda de Arvore', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+const initialClasses: ServicesGroup[] = [
+	{ numberProtocol: 65828, date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Pendente' },
+	{ numberProtocol: 65859, date: "21/06/2025", serviceType: 'Iluminação', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Finalizado' },
+	{ numberProtocol: 65867, date: "21/06/2025", serviceType: 'Zeladoria', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Pendente' },
+	{ numberProtocol: 65888, date: "21/06/2025", serviceType: 'Poda de Arvore', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
 ];
 
 type ActionsMenuProps = {

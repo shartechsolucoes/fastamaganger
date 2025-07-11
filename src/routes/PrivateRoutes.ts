@@ -13,6 +13,9 @@ import ProtocolsView from '../pages/Protocols/View';
 import ProtocolsReport from '../pages/Protocols/Report';
 import ProtocolBlackList from '../pages/Protocols/BlackList';
 
+import Services from '../pages/Services';
+
+
 export type RouteItem = {
 	name: string;
 	path: string;
@@ -68,7 +71,7 @@ export const privateRoutes: RouteItem[] = [
 		name: 'Serviços',
 		path: '/services',
 		icon: 'dashboard',
-		component: Dashboard,
+		component: Services,
 		access: [0, 1, 2, 3, 4, 5, 6],
 		children: [
 			{

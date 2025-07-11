@@ -39,10 +39,10 @@ function Landing() {
 								<a className="nav-link" href="#">Protocolos</a>
 							</li>
 							<li className="nav-item">
-								<a className="btn btn-outline-success my-2 my-sm-0" href='register'>Cadastrar</a>
+								<a className="btn  my-2 my-sm-0" href='register'>Cadastrar</a>
 							</li>
 							<li className="nav-item">
-								<a className="btn btn-outline-success my-2 my-sm-0" href='login'>Login</a>
+								<a className="btn btn-info my-2 my-sm-0" href='login'>Login</a>
 							</li>
 						</ul>
 					</div>

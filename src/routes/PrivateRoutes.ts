@@ -15,7 +15,6 @@ import ProtocolBlackList from '../pages/Protocols/BlackList';
 
 import Services from '../pages/Services';
 
-
 export type RouteItem = {
 	name: string;
 	path: string;
@@ -24,7 +23,7 @@ export type RouteItem = {
 	access: number[];
 	visible?: boolean;
 	children?: RouteItem[];
-}
+};
 
 export const privateRoutes: RouteItem[] = [
 	{
@@ -37,7 +36,7 @@ export const privateRoutes: RouteItem[] = [
 	{
 		name: 'Protocolos',
 		path: '/protocols',
-		icon: 'dashboard',
+		icon: 'protocol',
 		component: Protocols,
 		access: [0, 1, 2, 3, 4, 5, 6],
 		children: [
@@ -70,7 +69,7 @@ export const privateRoutes: RouteItem[] = [
 	{
 		name: 'Serviços',
 		path: '/services',
-		icon: 'dashboard',
+		icon: 'services',
 		component: Services,
 		access: [0, 1, 2, 3, 4, 5, 6],
 		children: [
@@ -87,7 +86,7 @@ export const privateRoutes: RouteItem[] = [
 	{
 		name: 'Estoque',
 		path: '/stock',
-		icon: 'dashboard',
+		icon: 'stock',
 		component: Stock,
 		access: [0, 1, 2, 3, 4, 5, 6],
 		children: [
@@ -118,24 +117,6 @@ export const privateRoutes: RouteItem[] = [
 		],
 	},
 	{
-		name: 'Usuarios',
-		path: '/users',
-		icon: 'users',
-		component: Users,
-		access: [0, 1, 2],
-		children: [
-			{
-				name: 'Novo usuário',
-				path: '/users/form',
-				icon: '',
-				component: Form,
-				access: [0, 1],
-				visible: true,
-			},
-		],
-	},
-
-	{
 		name: 'Empresas',
 		path: '/company',
 		icon: 'company',
@@ -152,7 +133,21 @@ export const privateRoutes: RouteItem[] = [
 			},
 		],
 	},
-
-
-
+	{
+		name: 'Usuarios',
+		path: '/users',
+		icon: 'users',
+		component: Users,
+		access: [0, 1, 2],
+		children: [
+			{
+				name: 'Novo usuário',
+				path: '/users/form',
+				icon: '',
+				component: Form,
+				access: [0, 1],
+				visible: true,
+			},
+		],
+	},
 ];

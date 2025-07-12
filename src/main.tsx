@@ -9,9 +9,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 createRoot(document.getElementById('root')!).render(
 	<BrowserRouter>
-		{/* <Routes>
-		</Routes> */}
-
 		<Routes>
 			{publicRoutes.map(({ path, component }) => (
 				<Route key={path} path={path} Component={component} />

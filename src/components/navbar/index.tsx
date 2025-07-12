@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import './styles.css';
+import styles from './styles.module.css';
 import { IoMenu } from 'react-icons/io5';
 import { useNavigate } from 'react-router';
 import useAccessLevelStore from '../../stores/accessLevelStore';
-import Notices from "../Cards/Notices";
+import Notices from '../Cards/Notices';
 import { IoMdNotifications } from 'react-icons/io';
-
 
 const notices = [
 	{
@@ -27,7 +26,7 @@ export default function Navbar() {
 	const { userName, userAvatar } = useAccessLevelStore();
 	const [toggleDropdown, setToggleDropdown] = useState(false);
 	const [toggleDropdownNotices, setToggleDropdownNotices] = useState(false);
-	const [hasavatar, setHasAvatar] = useState(false);
+	const [hasAvatar, setHasAvatar] = useState(false);
 	const toggleMenu = () => {
 		const r = document.documentElement;
 		r.style.cssText = '--menu-position: 0vw;';
@@ -60,7 +59,7 @@ export default function Navbar() {
 	return (
 		<>
 			<nav
-				className="layout-navbar navbar navbar-detached align-items-center bg-navbar-theme"
+				className={`${styles.layoutNavbar} layout-navbar navbar navbar-detached align-items-center bg-navbar-theme`}
 				id="layout-navbar"
 			>
 				<div className="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -101,9 +100,9 @@ export default function Navbar() {
 							</a>
 
 							<ul
-								className={`dropdown-menu dropdown-menu-end drop-menu dropdown-menu-notices ${
-									toggleDropdownNotices && 'show'
-								}`}
+								className={`dropdown-menu dropdown-menu-end ${
+									styles.dropMenu
+								} dropdown-menu-notices ${toggleDropdownNotices && 'show'}`}
 							>
 								{notices.map((n, i) => (
 									<Notices
@@ -128,7 +127,7 @@ export default function Navbar() {
 									className="avatar rounded-circle d-flex"
 									style={{ overflow: 'hidden' }}
 								>
-									{hasavatar ? (
+									{hasAvatar ? (
 										<img src={userAvatar} className="w-px-40 h-auto " />
 									) : (
 										<div className="fw-medium h-100 w-100 d-flex align-items-center justify-content-center bg-label-dark">

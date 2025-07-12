@@ -18,7 +18,8 @@ function Landing() {
 						<span className="navbar-toggler-icon"></span>
 					</button>
 
-					<div className="collapse navbar-collapse d-flex justify-content-end gap-3" id="navbarSupportedContent">
+					<div className="collapse navbar-collapse d-flex justify-content-end gap-3"
+						 id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item active">
 								<a className="nav-link" href="#">Home</a>
@@ -47,16 +48,101 @@ function Landing() {
 						</ul>
 					</div>
 				</nav>
-				<section className="mt-4 destaque d-flex justify-content-center align-items-center" style={{ minHeight: '50vh' }}>
+				<section className="mt-4 destaque d-flex justify-content-center align-items-center"
+						 style={{minHeight: '50vh'}}>
 					<div className="row w-100 justify-content-center">
 						<div className="col-8 text-center">
 							<h1 className="text-white">Gestão Inteligente para Serviços Urbanos</h1>
-							<p>O Sistema de Gerenciamento de Ordens de Serviço tem como objetivo principal modernizar e otimizar a gestão de serviços públicos como poda de árvores, iluminação pública, esgoto e limpeza urbana.
+							<p>O Sistema de Gerenciamento de Ordens de Serviço tem como objetivo principal modernizar e
+								otimizar a gestão de serviços públicos como poda de árvores, iluminação pública, esgoto
+								e limpeza urbana.
 
-								A proposta é garantir agilidade, rastreabilidade, organização e transparência em todo o processo — desde o recebimento da solicitação até a conclusão do serviço.</p>
+								A proposta é garantir agilidade, rastreabilidade, organização e transparência em todo o
+								processo — desde o recebimento da solicitação até a conclusão do serviço.</p>
 
 						</div>
 					</div>
+				</section>
+				<section id="pricing" className="pricing section">
+
+
+					<div className="container section-title aos-init aos-animate" data-aos="fade-up">
+						<h2>Planos</h2>
+						<p>Adequado as suas Necessidades... </p>
+					</div>
+
+					<div className="container">
+
+						<div className="row g-4 g-lg-0">
+
+							<div className="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+								<div className="pricing-item luciano">
+									<h3>📦Plano I – Essencial</h3>
+									<h4><sup>R$</sup>399<span> / Mês</span></h4>
+									<ul>
+										<li><i className="bi bi-check"></i> <span> Público-alvo: Prefeituras de pequeno porte ou distritos.</span>
+										</li>
+										<li><i className="bi bi-check"></i> <span>🔹App com logo (marca própria)</span>
+										</li>
+										<li><i className="bi bi-check"></i> <span>🔹Acesso ao app mobile para equipes</span></li>
+										<li><i className="bi bi-check"></i> <span>🔹Controle de estoque com alertas de reposição</span>
+										</li>
+										<li><i className="bi bi-check"></i> <span>🔹Relatórios automáticos por módulo</span>
+										</li>
+										<li><i className="bi bi-check"></i> <span>🔹Suporte por e-mail e chat</span>
+										</li>
+									</ul>
+									<div className="text-center"><a href="#" className="buy-btn">Click Aqui</a></div>
+								</div>
+							</div>
+
+							<div className="col-lg-4 featured aos-init aos-animate" data-aos="zoom-in"
+								 data-aos-delay="100">
+								<div className="pricing-item">
+									<h3>📦 Plano II – Premium</h3>
+									<h4><sup>R$</sup>1.499<span> / mês</span></h4>
+									<ul>
+										<li><i className="bi bi-check"></i> <span> Público-alvo: Grandes prefeituras, consórcios regionais ou empresas terceirizadas.</span>
+										</li>
+										<li><i className="bi bi-check"></i> <span>🔹App com logo (marca própria)</span></li>
+										<li><i className="bi bi-check"></i> <span>🔹Integração com sistemas externos via API</span>
+										</li>
+										<li><i className="bi bi-check"></i> <span>🔹SLA de atendimento prioritário (24h)</span>
+
+										</li>
+										<li><i className="bi bi-check"></i>
+											<span>🔹Relatórios personalizados sob demanda</span></li>
+										<li><i className="bi bi-check"></i>
+											<span>🔹Módulo de auditoria e histórico completo</span></li>
+									</ul>
+									<div className="text-center"><a href="#" className="buy-btn">Click Aqui</a></div>
+								</div>
+							</div>
+
+
+							<div className="col-lg-4 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+								<div className="pricing-item">
+									<h3>Developer Plan</h3>
+									<h4><sup>$</sup>49<span> / month</span></h4>
+									<ul>
+										<li><i className="bi bi-check"></i> <span>Quam adipiscing vitae proin</span>
+										</li>
+										<li><i className="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
+										<li><i className="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span>
+										</li>
+										<li><i className="bi bi-check"></i> <span>Pharetra massa massa ultricies</span>
+										</li>
+										<li><i className="bi bi-check"></i>
+											<span>Massa ultricies mi quis hendrerit</span></li>
+									</ul>
+									<div className="text-center"><a href="#" className="buy-btn">Buy Now</a></div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
 				</section>
 
 				<div className="row mt-4">
@@ -76,7 +162,7 @@ function Landing() {
 					<h1 className='title'>Planos</h1>
 					<div className="col-3">
 						<div className="card">
-							<div className="card-header"><h3>Plano I</h3></div>
+							<div className="card-header"><h3>📦 Plano I – Essencial</h3></div>
 							<div className="card-body">
 								<ul>
 									<li>💡 Iluminação Pública</li>
@@ -154,7 +240,8 @@ function Landing() {
 							<div className="form-group">
 								<input type="email" className="form-control" id="input"
 									   aria-describedby="emailHelp" placeholder="N° do protocolo"/>
-								<small id="emailHelp" className="form-text text-muted">Informe o numero de protocolo que iremos mostrar os dados da solicitação</small>
+								<small id="emailHelp" className="form-text text-muted">Informe o numero de protocolo que
+									iremos mostrar os dados da solicitação</small>
 							</div>
 						</form>
 					</div>

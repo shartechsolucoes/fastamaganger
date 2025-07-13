@@ -1,8 +1,9 @@
-.menu-vertical{
+.menu-vertical {
   background: var(--background-secundary);
   margin: 20px;
   border-radius: 15px;
 }
+
 .menu-item a.active:before {
   content: "";
   position: absolute;
@@ -13,7 +14,7 @@
 }
 
 .bg-menu-theme .menu-inner>.menu-item a.active {
-  color:  white;
+  color: white;
   background-color: var(--color-secundary) !important;
   font-weight: 600;
 }
@@ -27,6 +28,7 @@
   color: var(--color-primary) !important;
   float: left !important;
 }
+
 .menu-sub {
   display: none;
 }
@@ -39,20 +41,21 @@
   margin-top: 20px;
 }
 
-.app-brand p{
+.app-brand p {
   font-size: 1.5rem !important;
   color: #333333;
   line-height: 1.3rem;
 
 }
-p.induca{
+
+p.induca {
   font-size: 2.1rem !important;
   color: var(--color-primary);
   font-weight: bolder;
   line-height: 2.3rem !important;
 }
 
-.school{
+.school {
   list-style: none;
   background: var(--background-primary);
   padding: 20px;
@@ -60,11 +63,13 @@ p.induca{
   margin: 0rem 1rem;
   margin-bottom: 20px;
 }
-.school h5{
+
+.school h5 {
   margin: 0;
   padding: 0;
 }
-.school h2{
+
+.school h2 {
   margin: 0;
   padding: 0;
   font-size: 12px;
@@ -80,28 +85,39 @@ p.induca{
 @media (768px <=width <=1200px) {
 
   .navbar-toggle {
-    transform: translate(calc(var(--menu-position) - 10%)) !important;
+    transform: translate(calc(var(--menu-position))) !important;
     transition: .5s !important;
     flex-wrap: nowrap !important;
     flex-direction: column;
 
   }
 
+  .menu-item-w {
+    width: 100% !important;
+  }
+
   .layout-menu {
     translate: none !important;
+    width: 95vw !important;
+    margin: 0;
+  }
+
+  .menu-inner {
+    width: 100%
   }
 
   .app-brand {
     justify-content: space-between;
   }
 
-  .app-brand p{
+  .app-brand p {
     font-size: 1.2rem !important;
     color: #333333;
     line-height: 1.1rem;
 
   }
-  p.induca{
+
+  p.induca {
     font-size: 3.1rem !important;
     color: var(--color-primary);
     font-weight: bolder;

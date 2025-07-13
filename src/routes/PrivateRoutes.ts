@@ -72,16 +72,6 @@ export const privateRoutes: RouteItem[] = [
 		icon: 'services',
 		component: Services,
 		access: [0, 1, 2, 3, 4, 5, 6],
-		children: [
-			{
-				name: 'Intens',
-				path: '/stock/intens',
-				icon: '',
-				component: Form,
-				access: [0, 1],
-				visible: true,
-			},
-		],
 	},
 	{
 		name: 'Estoque',
@@ -91,8 +81,8 @@ export const privateRoutes: RouteItem[] = [
 		access: [0, 1, 2, 3, 4, 5, 6],
 		children: [
 			{
-				name: 'Intens',
-				path: '/stock/intens',
+				name: 'Itens',
+				path: '/stock/items',
 				icon: '',
 				component: Form,
 				access: [0, 1],

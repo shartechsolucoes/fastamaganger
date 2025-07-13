@@ -68,7 +68,7 @@ export default function Sidebar() {
 					<ul className="menu-inner py-1 pt-5 bg-color">
 						{privateRoutes.map((route: RouteItem, index: number) =>
 							route.access.includes(accessLevel) ? (
-								<li key={index} className="menu-item">
+								<li key={index} className="menu-item menu-item-w">
 									{route.children ? (
 										<>
 											<NavLink
@@ -108,7 +108,7 @@ export default function Sidebar() {
 										</>
 									) : (
 										<NavLink
-											className="menu-link menu-toggle"
+											className={'menu-link'}
 											aria-current="page"
 											to={route.path}
 											onClick={toggleMenu}

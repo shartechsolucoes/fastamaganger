@@ -1,5 +1,12 @@
 import './landing.css';
+import AOS from 'aos';
+import "aos/dist/aos.css";
+import {useEffect} from "react";
+
 function Landing() {
+	useEffect(() => {
+		AOS.init({})
+	})
 	return (
 		<>
 			<div className='container landingPage'>
@@ -63,7 +70,7 @@ function Landing() {
 						</div>
 					</div>
 				</section>
-				<section id="pricing" className="pricing section">
+				<section id="pricing" className="pricing section d-none">
 
 
 					<div className="container section-title aos-init aos-animate" data-aos="fade-up">
@@ -84,10 +91,12 @@ function Landing() {
 										</li>
 										<li><i className="bi bi-check"></i> <span>🔹App com logo (marca própria)</span>
 										</li>
-										<li><i className="bi bi-check"></i> <span>🔹Acesso ao app mobile para equipes</span></li>
+										<li><i className="bi bi-check"></i>
+											<span>🔹Acesso ao app mobile para equipes</span></li>
 										<li><i className="bi bi-check"></i> <span>🔹Controle de estoque com alertas de reposição</span>
 										</li>
-										<li><i className="bi bi-check"></i> <span>🔹Relatórios automáticos por módulo</span>
+										<li><i className="bi bi-check"></i>
+											<span>🔹Relatórios automáticos por módulo</span>
 										</li>
 										<li><i className="bi bi-check"></i> <span>🔹Suporte por e-mail e chat</span>
 										</li>
@@ -104,10 +113,12 @@ function Landing() {
 									<ul>
 										<li><i className="bi bi-check"></i> <span> Público-alvo: Grandes prefeituras, consórcios regionais ou empresas terceirizadas.</span>
 										</li>
-										<li><i className="bi bi-check"></i> <span>🔹App com logo (marca própria)</span></li>
+										<li><i className="bi bi-check"></i> <span>🔹App com logo (marca própria)</span>
+										</li>
 										<li><i className="bi bi-check"></i> <span>🔹Integração com sistemas externos via API</span>
 										</li>
-										<li><i className="bi bi-check"></i> <span>🔹SLA de atendimento prioritário (24h)</span>
+										<li><i className="bi bi-check"></i>
+											<span>🔹SLA de atendimento prioritário (24h)</span>
 
 										</li>
 										<li><i className="bi bi-check"></i>
@@ -145,107 +156,285 @@ function Landing() {
 
 				</section>
 
-				<div className="row mt-4">
-					<div className="col-3 text-center">
-						Iluminação Pública<br/>
-						Esgoto e Drenagem
-					</div>
-					<div className="col-6 text-center ">
-						Imagem do APP
-					</div>
-					<div className="col-3 text-center">
-						Coleta e limpeza urbana<br/>
-						Poda de arvore
-					</div>
-				</div>
-				<div className="row mt-4">
-					<h1 className='title'>Planos</h1>
-					<div className="col-3">
-						<div className="card">
-							<div className="card-header"><h3>📦 Plano I – Essencial</h3></div>
-							<div className="card-body">
-								<ul>
-									<li>💡 Iluminação Pública</li>
-									<li>💧 Esgoto e Drenagem</li>
-									<li>🗑️ Coleta e Limpeza Urbana</li>
-									<li>🌳 Poda de Árvores</li>
-									<li>Estoque</li>
-								</ul>
+				<section className="section features mt-5" id="features">
+					<div className="container">
+						<div className="row">
+							<div className="col-12">
+								<div className="d-lg-flex p-5 rounded-4 content aos-init aos-animate" data-aos="fade-in"
+									 data-aos-delay="0">
+									<div className="row">
+										<div className="col-lg-5 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up"
+											 data-aos-delay="0">
+											<div className="row">
+												<div className="col-lg-11">
+													<div className="h-100 flex-column justify-content-between d-flex">
+														<div>
+															<h2 className="mb-4">Why Choose us</h2>
+															<p className="mb-5">Experience the future of finance with
+																our secure, efficient, and user-friendly financial
+																services. Our cutting-edge platform ensures your
+																transactions are safe, streamlined, and easy to manage,
+																empowering you to take control of your financial journey
+																with confidence and convenience."</p>
+														</div>
+														<div className="align-self-start"><a
+															className="glightbox btn btn-play d-inline-flex align-items-center gap-2"
+															href="https://www.youtube.com/watch?v=DQx96G4yHd8"
+															data-gallery="video"><i
+															className="bi bi-play-fill"></i> Watch the Video</a></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div className="col-lg-7">
+											<div className="row justify-content-end">
+												<div className="col-lg-11">
+													<div className="row">
+														<div className="col-sm-6 aos-init aos-animate"
+															 data-aos="fade-up" data-aos-delay="0">
+															<div className="icon text-center mb-4"><i
+																className="bi bi-person-check fs-4"></i></div>
+															<h3 className="fs-6 fw-bold mb-3">Interface de facil
+																interação</h3>
+															<p>Easy navigation with responsive design for various
+																devices.</p>
+														</div>
+														<div className="col-sm-6 aos-init aos-animate"
+															 data-aos="fade-up" data-aos-delay="100">
+															<div className="icon text-center mb-4"><i
+																className="bi bi-graph-up fs-4"></i></div>
+															<h3 className="fs-6 fw-bold mb-3">Suporte 24H</h3>
+															<p>24/7 service via chat, email, phone, and a detailed help
+																center.</p>
+														</div>
+														<div className="col-sm-6 aos-init aos-animate"
+															 data-aos="fade-up" data-aos-delay="200">
+															<div className="icon text-center mb-4"><i
+																className="bi bi-headset fs-4"></i></div>
+															<h3 className="fs-6 fw-bold mb-3">Customização do
+																Dashboard</h3>
+															<p>24/7 service via chat, email, phone, and a detailed help
+																center.</p>
+														</div>
+														<div className="col-sm-6 aos-init aos-animate"
+															 data-aos="fade-up" data-aos-delay="300">
+															<div className="icon text-center mb-4"><i
+																className="bi bi-shield-lock fs-4"></i></div>
+															<h3 className="fs-6 fw-bold mb-3">Segurança</h3>
+															<p>Data encryption, fraud detection, and prevention
+																mechanisms.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div className="col-3">
-						<div className="card">
-							<div className="card-header"><h3>Plano II</h3></div>
-							<div className="card-body">
-								<ul>
-									<li>💡 Iluminação Pública</li>
-									<li>💧 Esgoto e Drenagem</li>
-									<li>🗑️ Coleta e Limpeza Urbana</li>
-									<li>🌳 Poda de Árvores</li>
-									<li>Estoque</li>
-								</ul>
+				</section>
+
+				<section className="section pricing-v2  mt-5" id="pricing">
+					<div className="container">
+						<div className="row mb-5">
+							<div className="col-md-5 mx-auto text-center"><span
+								className="subtitle text-uppercase mb-3 aos-init aos-animate" data-aos="fade-up"
+								data-aos-delay="0">Preços</span>
+								<h2 className="mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Plan
+									for every budget</h2>
+								<p data-aos="fade-up" data-aos-delay="200" className="aos-init aos-animate">Experience
+									the future of finance with our secure, efficient, and user-friendly financial
+									services</p>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-4 mb-4 mb-md-0 aos-init aos-animate" data-aos="fade-up"
+								 data-aos-delay="300">
+								<div className="p-5 rounded-4 price-table h-100">
+									<h3>Pequenas empresas</h3>
+									<p>Choose a plan that fits your personal financial needs and start managing your
+										finances more effectively.</p>
+									<div className="price mb-4"><strong>Free</strong><span></span></div>
+									<div><a className="btn" href="#">Cadastrar</a></div>
+								</div>
+							</div>
+							<div className="col-md-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+								<div className="p-5 rounded-4 price-table company h-100">
+									<div className="row">
+										<div className="col-md-6 text-white">
+											<h3 className="mb-3 text-white">Personalizado</h3>
+											<p className="text-white">Optimize your business financial operations with
+												our tailored business
+												plans.</p>
+											<div className="price mb-4"><strong className="me-1 text-white">$29</strong><span>/ month</span>
+											</div>
+											<div><a className="btn btn-white hover-outline bg-white" href="#">Entre em
+												contato</a>
+											</div>
+										</div>
+										<div className="col-md-6 pricing-features text-white">
+											<h4 className="text-uppercase fw-bold mb-3 text-white">Módulos</h4>
+											<ul className="list-unstyled d-flex flex-column gap-3">
+												<li className="d-flex gap-2 align-items-start mb-0"><span
+													className="icon rounded-circle position-relative mt-1"><i
+													className="bi bi-check"></i></span><span>App com logo (marca própria)</span>
+												</li>
+												<li className="d-flex gap-2 align-items-start mb-0"><span
+													className="icon rounded-circle position-relative mt-1"><i
+													className="bi bi-check"></i></span><span>Integração com sistemas externos via API</span>
+												</li>
+												<li className="d-flex gap-2 align-items-start mb-0"><span
+													className="icon rounded-circle position-relative mt-1"><i
+													className="bi bi-check"></i></span><span>Relatórios personalizados sob demanda</span>
+												</li>
+												<li className="d-flex gap-2 align-items-start mb-0"><span
+													className="icon rounded-circle position-relative mt-1"><i
+													className="bi bi-check"></i></span><span>Módulo de auditoria e histórico completo</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div className="col-3">
-						<div className="card">
-							<div className="card-header"><h3>Plano III</h3></div>
-							<div className="card-body">
-								<ul>
-									<li>💡 Iluminação Pública</li>
-									<li>💧 Esgoto e Drenagem</li>
-									<li>🗑️ Coleta e Limpeza Urbana</li>
-									<li>🌳 Poda de Árvores</li>
-									<li>Estoque</li>
-								</ul>
-							</div>
+				</section>
+
+				<div className="row mt-4 mt-5">
+					<div className="row mb-5">
+						<div className="col-md-5 mx-auto text-center"><span
+							className="subtitle text-uppercase mb-3 aos-init aos-animate" data-aos="fade-up"
+							data-aos-delay="0">Preços</span>
+							<h2 className="mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Plan
+								for every budget</h2>
+							<p data-aos="fade-up" data-aos-delay="200" className="aos-init aos-animate">Experience
+								the future of finance with our secure, efficient, and user-friendly financial
+								services</p>
 						</div>
 					</div>
-					<div className="col-3">
-						<div className="card">
-							<div className="card-header"><h3>Plano IIII</h3></div>
-							<div className="card-body">
-								<ul>
-									<li>💡 Iluminação Pública</li>
-									<li>💧 Esgoto e Drenagem</li>
-									<li>🗑️ Coleta e Limpeza Urbana</li>
-									<li>🌳 Poda de Árvores</li>
-									<li>Estoque</li>
-								</ul>
-							</div>
+					<div className="col-2 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+						<div className="box-client">
+							<img
+								src="https://vectorseek.com/wp-content/uploads/2023/09/Prefeitura-De-Curitiba-Logo-Vector.svg--300x98.png"
+								className='img-fluid'/>
 						</div>
 					</div>
-				</div>
-				<div className="row mt-4">
-					<h1 className='title'>Clientes</h1>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
-					<div className="col-1 text-center">Prefeitura</div>
+					<div className="col-2 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+						<div className="box-client">
+							<img
+								src="https://vectorseek.com/wp-content/uploads/2023/09/Prefeitura-De-Curitiba-Logo-Vector.svg--300x98.png"
+								className='img-fluid'/>
+						</div>
+					</div>
+					<div className="col-2 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+						<div className="box-client">
+							<img
+								src="https://vectorseek.com/wp-content/uploads/2023/09/Prefeitura-De-Curitiba-Logo-Vector.svg--300x98.png"
+								className='img-fluid'/>
+						</div>
+					</div>
+					<div className="col-2 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+						<div className="box-client">
+							<img
+								src="https://vectorseek.com/wp-content/uploads/2023/09/Prefeitura-De-Curitiba-Logo-Vector.svg--300x98.png"
+								className='img-fluid'/>
+						</div>
+					</div>
+					<div className="col-2 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+						<div className="box-client">
+							<img
+								src="https://vectorseek.com/wp-content/uploads/2023/09/Prefeitura-De-Curitiba-Logo-Vector.svg--300x98.png"
+								className='img-fluid'/>
+						</div>
+					</div>
+					<div className="col-2 text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="700">
+						<div className="box-client">
+							<img
+								src="https://vectorseek.com/wp-content/uploads/2023/09/Prefeitura-De-Curitiba-Logo-Vector.svg--300x98.png"
+								className='img-fluid'/>
+						</div>
+					</div>
 				</div>
 
-				<div className="row mt-4 d-flex justify-content-center">
-					<div className="col-12 text-center">
-						<h1>Consultar Protocolos</h1>
-						<form>
-							<div className="form-group">
-								<input type="email" className="form-control" id="input"
-									   aria-describedby="emailHelp" placeholder="N° do protocolo"/>
-								<small id="emailHelp" className="form-text text-muted">Informe o numero de protocolo que
-									iremos mostrar os dados da solicitação</small>
+				<section className="section contact__v2" id="contact">
+					<div className="container">
+						<div className="row mb-5">
+							<div className="col-md-6 col-lg-7 mx-auto text-center"><span
+								className="subtitle text-uppercase mb-3 aos-init aos-animate" data-aos="fade-up"
+								data-aos-delay="0">Contato</span>
+								<h2 className="h2 fw-bold mb-3 aos-init aos-animate" data-aos="fade-up"
+									data-aos-delay="0">Ficou com duvida?</h2>
+								<p data-aos="fade-up" data-aos-delay="100" className="aos-init aos-animate">Entre em contato e ...</p>
 							</div>
-						</form>
+						</div>
+						<div className="row">
+							<div className="col-md-6">
+								<div className="d-flex gap-5 flex-column">
+									<div className="d-flex align-items-start gap-3 aos-init aos-animate"
+										 data-aos="fade-up" data-aos-delay="0">
+										<div className="icon d-block"><i className="bi bi-telephone"></i></div>
+										<span> <span className="d-block">Phone</span><strong>(41) 99541-9995</strong></span>
+									</div>
+									<div className="d-flex align-items-start gap-3 aos-init aos-animate"
+										 data-aos="fade-up" data-aos-delay="100">
+										<div className="icon d-block"><i className="bi bi-send"></i></div>
+										<span> <span className="d-block">Email</span><strong>info@shartech.com.br</strong></span>
+									</div>
+									<div className="d-flex align-items-start gap-3 aos-init aos-animate"
+										 data-aos="fade-up" data-aos-delay="200">
+										<div className="icon d-block"><i className="bi bi-geo-alt"></i></div>
+										<span> <span className="d-block">Address</span>
+                      <address
+						  className="fw-bold">Rua Arnaldo Gusi 44, <br/> Xaxim Curitib/PR</address></span>
+									</div>
+								</div>
+							</div>
+							<div className="col-md-6">
+								<div className="form-wrapper aos-init aos-animate" data-aos="fade-up"
+									 data-aos-delay="300">
+									<form id="contactForm">
+										<div className="row gap-3 mb-3">
+											<div className="col-md-12">
+												<label className="mb-2" htmlFor="name">Name</label>
+												<input className="form-control" id="name" type="text" name="name"
+													   required=""/>
+											</div>
+											<div className="col-md-12">
+												<label className="mb-2" htmlFor="email">Email</label>
+												<input className="form-control" id="email" type="email" name="email"
+													   required=""/>
+											</div>
+										</div>
+										<div className="row gap-3 mb-3">
+											<div className="col-md-12">
+												<label className="mb-2" htmlFor="subject">Subject</label>
+												<input className="form-control" id="subject" type="text"
+													   name="subject"/>
+											</div>
+										</div>
+										<div className="row gap-3 gap-md-0 mb-3">
+											<div className="col-md-12">
+												<label className="mb-2" htmlFor="message">Message</label>
+												<textarea className="form-control" id="message" name="message" rows="5"
+														  required=""></textarea>
+											</div>
+										</div>
+										<button className="btn btn-primary fw-semibold" type="submit">Send Message
+										</button>
+									</form>
+									<div className="mt-3 d-none alert alert-success" id="successMessage">Message sent
+										successfully!
+									</div>
+									<div className="mt-3 d-none alert alert-danger" id="errorMessage">Message sending
+										failed. Please try again later.
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
+				</section>
+
 			</div>
 		</>
 	);

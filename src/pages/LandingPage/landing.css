@@ -130,3 +130,33 @@ html, body {
 .pricing .featured .buy-btn:hover {
     background: color-mix(in srgb, var(--background-color), transparent 92%);
 }
+
+.pricing-v2{
+
+}
+.pricing-v2 .price-table {
+    border: 1px solid color-mix(in srgb, var(--color-primary), transparent 60%);
+}
+
+.pricing-v2 .company {
+    background: var(--color-primary);
+}
+.pricing-v2 .company .text-white{
+    color: white !important;
+}
+.pricing-v2 .price-table .price strong {
+    font-size: 40px;
+}
+.pricing-v2 .price-table h3 {
+    font-size: 1.75rem;
+}
+
+.box-client{
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+}
+
+.features{
+    /*background: color-mix(in srgb, var(--color-primary), transparent 80%);*/
+}

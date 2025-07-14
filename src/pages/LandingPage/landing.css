@@ -3,6 +3,16 @@ html, body {
     height: 100%;
     margin: 0;
     overflow: unset !important;
+    background: white !important;
+}
+.section{
+    padding: 50px 0;
+}
+.hero-img{
+    background: var(--color-primary);
+    border-radius: 0 80px 0 80px;
+    height: 450px;
+    background: url("https://www.geoambiente.com.br/blog/wp-content/uploads/sites/12/2021/03/aplicativos-geolocalizacao.jpg");
 }
 .destaque{
     position: relative;

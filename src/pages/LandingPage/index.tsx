@@ -9,8 +9,8 @@ function Landing() {
 	})
 	return (
 		<>
-			<div className='container landingPage'>
-				<nav className="navbar navbar-expand-lg">
+			<div className='landingPage'>
+				<nav className="navbar navbar-expand-lg container">
 					<a className="navbar-brand" href="#">
 						<div className="app-brand d-block">
 							<a href="#" className="d-block">
@@ -55,21 +55,49 @@ function Landing() {
 						</ul>
 					</div>
 				</nav>
-				<section className="mt-4 destaque d-flex justify-content-center align-items-center"
-						 style={{minHeight: '50vh'}}>
-					<div className="row w-100 justify-content-center">
-						<div className="col-8 text-center">
-							<h1 className="text-white">Gestão Inteligente para Serviços Urbanos</h1>
-							<p>O Sistema de Gerenciamento de Ordens de Serviço tem como objetivo principal modernizar e
-								otimizar a gestão de serviços públicos como poda de árvores, iluminação pública, esgoto
-								e limpeza urbana.
+				<section className="hero__v6 section" id="home">
+					<div className="container">
+						<div className="row">
+							<div className="col-lg-6 mb-4 mb-lg-0">
+								<div className="row">
+									<div className="col-lg-11"><span
+										className="hero-subtitle text-uppercase aos-init aos-animate" data-aos="fade-up"
+										data-aos-delay="0">Gestão Inteligente</span>
+										<h1 className="hero-title mb-3 aos-init aos-animate" data-aos="fade-up"
+											data-aos-delay="100">Gestão Inteligente para Serviços Urbanos</h1>
+										<p className="hero-description mb-4 mb-lg-5 aos-init aos-animate"
+										   data-aos="fade-up" data-aos-delay="200">Experience the future of finance with
+											our secure, efficient, and user-friendly financial services.</p>
+										<div className="cta d-flex gap-2 mb-4 mb-lg-5 aos-init aos-animate"
+											 data-aos="fade-up" data-aos-delay="300"><a className="btn" href="#">Faça seu cadastro Agora</a><a className="btn btn-white-outline" href="#">Saiba Mais
+											<svg className="lucide lucide-arrow-up-right"
+												 xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+												 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+												 stroke-linecap="round" stroke-linejoin="round">
+												<path d="M7 7h10v10"></path>
+												<path d="M7 17 17 7"></path>
+											</svg></a></div>
+										<div className="logos mb-4 aos-init aos-animate" data-aos="fade-up"
+											 data-aos-delay="400"><span
+											className="logos-title text-uppercase mb-4 d-block">Trusted by major companies worldwide</span>
+											<div className="logos-images d-flex gap-4 align-items-center">
 
-								A proposta é garantir agilidade, rastreabilidade, organização e transparência em todo o
-								processo — desde o recebimento da solicitação até a conclusão do serviço.</p>
 
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className="col-lg-6">
+								<div className="hero-img">
+
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
+
+
 				<section id="pricing" className="pricing section d-none">
 
 
@@ -156,11 +184,11 @@ function Landing() {
 
 				</section>
 
-				<section className="section features mt-5" id="features">
+				<section className="section features" id="features">
 					<div className="container">
 						<div className="row">
 							<div className="col-12">
-								<div className="d-lg-flex p-5 rounded-4 content aos-init aos-animate" data-aos="fade-in"
+								<div className="d-lg-flex aos-init aos-animate" data-aos="fade-in"
 									 data-aos-delay="0">
 									<div className="row">
 										<div className="col-lg-5 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up"
@@ -169,13 +197,14 @@ function Landing() {
 												<div className="col-lg-11">
 													<div className="h-100 flex-column justify-content-between d-flex">
 														<div>
-															<h2 className="mb-4">Why Choose us</h2>
-															<p className="mb-5">Experience the future of finance with
-																our secure, efficient, and user-friendly financial
-																services. Our cutting-edge platform ensures your
-																transactions are safe, streamlined, and easy to manage,
-																empowering you to take control of your financial journey
-																with confidence and convenience."</p>
+															<h2 className="mb-4">Fast Mananger</h2>
+
+															<p className="mb-5">O Sistema de Gerenciamento de Ordens de Serviço tem como objetivo principal modernizar e
+																otimizar a gestão de serviços públicos como poda de árvores, iluminação pública, esgoto
+																e limpeza urbana.
+
+																A proposta é garantir agilidade, rastreabilidade, organização e transparência em todo o
+																processo — desde o recebimento da solicitação até a conclusão do serviço.</p>
 														</div>
 														<div className="align-self-start"><a
 															className="glightbox btn btn-play d-inline-flex align-items-center gap-2"
@@ -234,15 +263,65 @@ function Landing() {
 						</div>
 					</div>
 				</section>
-
-				<section className="section pricing-v2  mt-5" id="pricing">
+				<section className="stats section">
+					<div className="container">
+						<div className="row">
+							<div className="col-12">
+								<div className="d-flex flex-wrap content rounded-4 aos-init aos-animate"
+									 data-aos="fade-up" data-aos-delay="0">
+									<div className="rounded-borders">
+										<div className="rounded-border-1"></div>
+										<div className="rounded-border-2"></div>
+										<div className="rounded-border-3"></div>
+									</div>
+									<div
+										className="col-12 col-sm-6 col-md-4 mb-4 mb-md-0 text-center aos-init aos-animate"
+										data-aos="fade-up" data-aos-delay="100">
+										<div className="stat-item">
+											<h3 className="fs-1 fw-bold"><span className="purecounter"
+																			   data-purecounter-start="0"
+																			   data-purecounter-end="10"
+																			   data-purecounter-duration="0">10</span><span>K+</span>
+											</h3>
+											<p className="mb-0">Protocolos abertos</p>
+										</div>
+									</div>
+									<div
+										className="col-12 col-sm-6 col-md-4 mb-4 mb-md-0 text-center aos-init aos-animate"
+										data-aos="fade-up" data-aos-delay="200">
+										<div className="stat-item">
+											<h3 className="fs-1 fw-bold"><span className="purecounter"
+																			   data-purecounter-start="0"
+																			   data-purecounter-end="99"
+																			   data-purecounter-duration="0">99</span><span>%+</span>
+											</h3>
+											<p className="mb-0">Protocolos Resolvidos</p>
+										</div>
+									</div>
+									<div
+										className="col-12 col-sm-6 col-md-4 mb-4 mb-md-0 text-center aos-init aos-animate"
+										data-aos="fade-up" data-aos-delay="300">
+										<div className="stat-item">
+											<h3 className="fs-1 fw-bold"><span className="purecounter"
+																			   data-purecounter-start="0"
+																			   data-purecounter-end="20"
+																			   data-purecounter-duration="0">20</span><span>+</span>
+											</h3>
+											<p className="mb-0">Empresas</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section className="section pricing-v2" id="pricing">
 					<div className="container">
 						<div className="row mb-5">
 							<div className="col-md-5 mx-auto text-center"><span
 								className="subtitle text-uppercase mb-3 aos-init aos-animate" data-aos="fade-up"
 								data-aos-delay="0">Preços</span>
-								<h2 className="mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Plan
-									for every budget</h2>
+								<h2 className="mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Nossas soluções</h2>
 								<p data-aos="fade-up" data-aos-delay="200" className="aos-init aos-animate">Experience
 									the future of finance with our secure, efficient, and user-friendly financial
 									services</p>
@@ -300,14 +379,14 @@ function Landing() {
 						</div>
 					</div>
 				</section>
-
-				<div className="row mt-4 mt-5">
+				<section className="section features" id="features">
+					<div className="container">
+				<div className="row">
 					<div className="row mb-5">
 						<div className="col-md-5 mx-auto text-center"><span
 							className="subtitle text-uppercase mb-3 aos-init aos-animate" data-aos="fade-up"
-							data-aos-delay="0">Preços</span>
-							<h2 className="mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Plan
-								for every budget</h2>
+							data-aos-delay="0">Clientes</span>
+							<h2 className="mb-3 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Nossos Clientes</h2>
 							<p data-aos="fade-up" data-aos-delay="200" className="aos-init aos-animate">Experience
 								the future of finance with our secure, efficient, and user-friendly financial
 								services</p>
@@ -356,8 +435,114 @@ function Landing() {
 						</div>
 					</div>
 				</div>
+					</div>
+				</section>
+				<section className="section faq" id="faq">
+					<div className="container">
+						<div className="row mb-4">
+							<div className="col-md-6 col-lg-7 mx-auto text-center"><span
+								className="subtitle text-uppercase mb-3 aos-init aos-animate" data-aos="fade-up"
+								data-aos-delay="0">FAQ</span>
+								<h2 className="h2 fw-bold mb-3 aos-init aos-animate" data-aos="fade-up"
+									data-aos-delay="0">Perguntas Frequentes</h2>
+								<p data-aos="fade-up" data-aos-delay="100" className="aos-init aos-animate">Utilize our
+									tools to develop your concepts and bring your vision to life. Once complete,
+									effortlessly share your creations.</p>
+							</div>
+						</div>
+						<div className="row">
+							<div className="col-md-8 mx-auto aos-init aos-animate" data-aos="fade-up"
+								 data-aos-delay="200">
+								<div className="faq-content">
+									<div className="accordion custom-accordion" id="accordionPanelsStayOpenExample">
+										<div className="accordion-item">
+											<h2 className="accordion-header">
+												<button className="accordion-button collapsed" type="button"
+														data-bs-toggle="collapse"
+														data-bs-target="#panelsStayOpen-collapseOne"
+														aria-expanded="false"
+														aria-controls="panelsStayOpen-collapseOne"> Podemos inserir nossa logo e cores na dashboard?
+												</button>
+											</h2>
+											<div className="accordion-collapse collapse" id="panelsStayOpen-collapseOne"
+											>
+												<div className="accordion-body">Our web agency offers a comprehensive
+													range of services including web design and development, e-commerce
+													solutions, SEO optimization, content creation, website maintenance,
+													and digital marketing strategies. We tailor our services to meet the
+													unique needs of each client, ensuring a customized approach to every
+													project.
+												</div>
+											</div>
+										</div>
+										<div className="accordion-item">
+											<h2 className="accordion-header">
+												<button className="accordion-button collapsed" type="button"
+														data-bs-toggle="collapse"
+														data-bs-target="#panelsStayOpen-collapseTwo"
+														aria-expanded="false"
+														aria-controls="panelsStayOpen-collapseTwo"> É possivel fazer integração com nosso site?
+												</button>
+											</h2>
+											<div className="accordion-collapse collapse" id="panelsStayOpen-collapseTwo"
+											>
+												<div className="accordion-body">The cost of building a website can vary
+													widely depending on the complexity, features, and specific
+													requirements of your project. We offer several pricing packages to
+													accommodate different budgets and needs. After an initial
+													consultation, we can provide a detailed quote based on your specific
+													goals and objectives.
+												</div>
+											</div>
+										</div>
+										<div className="accordion-item">
+											<h2 className="accordion-header">
+												<button className="accordion-button collapsed" type="button"
+														data-bs-toggle="collapse"
+														data-bs-target="#panelsStayOpen-collapseThree"
+														aria-expanded="false"
+														aria-controls="panelsStayOpen-collapseThree"> Vocês possuem aplicativo?
+												</button>
+											</h2>
+											<div className="accordion-collapse collapse"
+												 id="panelsStayOpen-collapseThree">
+												<div className="accordion-body">The timeline for designing and
+													developing a website depends on the project's complexity and scope.
+													Typically, a standard business website takes about 4-6 weeks to
+													complete, while more complex projects like e-commerce sites or
+													custom applications may take longer. We work closely with our
+													clients to establish a realistic timeline and keep you informed
+													throughout the process.
+												</div>
+											</div>
+										</div>
+										<div className="accordion-item">
+											<h2 className="accordion-header">
+												<button className="accordion-button collapsed" type="button"
+														data-bs-toggle="collapse"
+														data-bs-target="#panelsStayOpen-collapseFour"
+														aria-expanded="false"
+														aria-controls="panelsStayOpen-collapseFour"> Quantos protocolos podem ser abertos por mês?
+												</button>
+											</h2>
+											<div className="accordion-collapse collapse"
+												 id="panelsStayOpen-collapseFour">
+												<div className="accordion-body">Absolutely! All the websites we design
+													and develop are fully responsive, meaning they are optimized to work
+													seamlessly across all devices, including desktops, tablets, and
+													smartphones. Ensuring a great user experience on mobile devices is a
+													top priority in our development process.
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
-				<section className="section contact__v2" id="contact">
+				<section className="section contact" id="contact">
 					<div className="container">
 						<div className="row mb-5">
 							<div className="col-md-6 col-lg-7 mx-auto text-center"><span
@@ -365,7 +550,8 @@ function Landing() {
 								data-aos-delay="0">Contato</span>
 								<h2 className="h2 fw-bold mb-3 aos-init aos-animate" data-aos="fade-up"
 									data-aos-delay="0">Ficou com duvida?</h2>
-								<p data-aos="fade-up" data-aos-delay="100" className="aos-init aos-animate">Entre em contato e ...</p>
+								<p data-aos="fade-up" data-aos-delay="100" className="aos-init aos-animate">Entre em
+									contato e ...</p>
 							</div>
 						</div>
 						<div className="row">
@@ -374,12 +560,14 @@ function Landing() {
 									<div className="d-flex align-items-start gap-3 aos-init aos-animate"
 										 data-aos="fade-up" data-aos-delay="0">
 										<div className="icon d-block"><i className="bi bi-telephone"></i></div>
-										<span> <span className="d-block">Phone</span><strong>(41) 99541-9995</strong></span>
+										<span> <span
+											className="d-block">Phone</span><strong>(41) 99541-9995</strong></span>
 									</div>
 									<div className="d-flex align-items-start gap-3 aos-init aos-animate"
 										 data-aos="fade-up" data-aos-delay="100">
 										<div className="icon d-block"><i className="bi bi-send"></i></div>
-										<span> <span className="d-block">Email</span><strong>info@shartech.com.br</strong></span>
+										<span> <span
+											className="d-block">Email</span><strong>info@shartech.com.br</strong></span>
 									</div>
 									<div className="d-flex align-items-start gap-3 aos-init aos-animate"
 										 data-aos="fade-up" data-aos-delay="200">

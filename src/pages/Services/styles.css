@@ -1,9 +1,47 @@
+.service-page {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.title-page {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.url-page {
+  font-size: 14px;
+  color: #888;
+}
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.btn-primary {
+  padding: 8px 24px;
+  font-weight: 500;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
 .pin-label {
   background-color: #4285F4;
   border: 1px solid #f8f8f8;
   border-radius: 8px;
-  color: #FFFFFF!important;
-  font-size: 11px!important;
+  color: #FFFFFF !important;
+  font-size: 11px !important;
   padding: 9px 12px;
   position: relative;
 }

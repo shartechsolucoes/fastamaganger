@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import { privateRoutes, RouteItem } from '../../routes/PrivateRoutes';
 import './styles.css';
 import useAccessLevelStore from '../../stores/accessLevelStore';
@@ -16,6 +16,7 @@ import { useState } from 'react';
 
 export default function Sidebar() {
 	const { accessLevel } = useAccessLevelStore();
+	const navigate = useNavigate();
 
 	const [openSubmenus, setOpenSubmenus] = useState<Record<string, boolean>>({});
 
@@ -24,7 +25,8 @@ export default function Sidebar() {
 		r.style.cssText = '--menu-position: -100vw;';
 	};
 
-	const toggleSubmenu = (name: string) => {
+	const toggleSubmenu = (name: string, route: string) => {
+		navigate(route);
 		setOpenSubmenus((prev) => ({ ...prev, [name]: !prev[name] }));
 	};
 
@@ -71,15 +73,21 @@ export default function Sidebar() {
 								<li key={index} className="menu-item menu-item-w">
 									{route.children ? (
 										<>
-											<NavLink
+											<a
 												className="menu-link menu-toggle"
 												aria-current="page"
-												to={route.path}
-												onClick={() => toggleSubmenu(route.name)}
+												onClick={() =>
+													toggleSubmenu(
+														route.name,
+														route?.children?.find(
+															(child) => child.visible === true
+														)?.path ?? ''
+													)
+												}
 											>
 												{icons(route.icon)}
 												<div data-i18n="User interface">{route.name}</div>
-											</NavLink>
+											</a>
 
 											{openSubmenus[route.name] && (
 												<ul

@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router';
+import { NavLink } from 'react-router';
 import { privateRoutes, RouteItem } from '../../routes/PrivateRoutes';
 import './styles.css';
 import useAccessLevelStore from '../../stores/accessLevelStore';
@@ -16,7 +16,6 @@ import { useState } from 'react';
 
 export default function Sidebar() {
 	const { accessLevel } = useAccessLevelStore();
-	const navigate = useNavigate();
 
 	const [openSubmenus, setOpenSubmenus] = useState<Record<string, boolean>>({});
 
@@ -26,7 +25,6 @@ export default function Sidebar() {
 	};
 
 	const toggleSubmenu = (name: string, route: string) => {
-		navigate(route);
 		setOpenSubmenus((prev) => ({ ...prev, [name]: !prev[name] }));
 	};
 

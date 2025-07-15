@@ -14,6 +14,7 @@ import ProtocolsReport from '../pages/Protocols/Report';
 import ProtocolBlackList from '../pages/Protocols/BlackList';
 
 import Services from '../pages/Services';
+import ProtocolForm from '../components/Forms/Protocols';
 
 export type RouteItem = {
 	name: string;
@@ -41,6 +42,14 @@ export const privateRoutes: RouteItem[] = [
 		access: [0, 1, 2, 3, 4, 5, 6],
 		children: [
 			{
+				name: 'Lista',
+				path: '/protocols/list',
+				icon: '',
+				component: Protocols,
+				access: [0, 1],
+				visible: true,
+			},
+			{
 				name: 'view',
 				path: '/protocols/:number',
 				icon: '',
@@ -63,6 +72,22 @@ export const privateRoutes: RouteItem[] = [
 				component: ProtocolBlackList,
 				access: [0, 1],
 				visible: true,
+			},
+			{
+				name: 'Cadastrar',
+				path: '/protocols/form',
+				icon: '',
+				component: ProtocolForm,
+				access: [0, 1],
+				visible: false,
+			},
+			{
+				name: 'Editar',
+				path: '/protocols/form/:number',
+				icon: '',
+				component: ProtocolForm,
+				access: [0, 1],
+				visible: false,
 			},
 		],
 	},

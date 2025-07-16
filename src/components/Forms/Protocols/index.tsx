@@ -12,9 +12,9 @@ export default function ProtocolForm() {
 	const stepRender = () => {
 		switch (steps) {
 			case 2:
-				return <Request />;
-			case 3:
 				return <Applicant />;
+			case 3:
+				return <Request />;
 			case 4:
 				return <Confirm />;
 

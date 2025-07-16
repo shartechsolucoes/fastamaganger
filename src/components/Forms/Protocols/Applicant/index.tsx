@@ -23,7 +23,7 @@ export default function Applicant() {
 			</div>
 			<div className="mb-3 col-12 col-md-12">
 				<label htmlFor="name" className="form-label">
-					Pedido
+					Solicitação
 				</label>
 				<textarea className="form-control" id="name" required />
 			</div>

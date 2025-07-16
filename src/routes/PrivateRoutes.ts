@@ -15,6 +15,7 @@ import ProtocolBlackList from '../pages/Protocols/BlackList';
 
 import Services from '../pages/Services';
 import ProtocolForm from '../components/Forms/Protocols';
+import ServiceProtocolPage from '../pages/Protocols/View';
 
 export type RouteItem = {
 	name: string;
@@ -45,7 +46,7 @@ export const privateRoutes: RouteItem[] = [
 				name: 'Lista',
 				path: '/protocols/list',
 				icon: '',
-				component: Protocols,
+				component: ServiceProtocolPage,
 				access: [0, 1],
 				visible: true,
 			},

@@ -17,6 +17,7 @@ import Services from '../pages/Services';
 import ProtocolForm from '../components/Forms/Protocols';
 import ServiceProtocolPage from '../pages/Protocols/View';
 import MaterialForm from '../components/Forms/Material';
+import CompanyForm from '../components/Forms/Enterprise';
 
 export type RouteItem = {
 	name: string;
@@ -163,6 +164,14 @@ export const privateRoutes: RouteItem[] = [
 				component: CompanyView,
 				access: [0, 1],
 				visible: true,
+			},
+			{
+				name: 'Empresa',
+				path: '/company/form',
+				icon: '',
+				component: CompanyForm,
+				access: [0, 1],
+				visible: false,
 			},
 		],
 	},

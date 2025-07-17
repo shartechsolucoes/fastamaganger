@@ -2,9 +2,10 @@ import Address from '../Addsress';
 import { StepProgress } from '../../StepProgress';
 import { useState } from 'react';
 import Confirm from './Confirm';
+import CompanyData from './Data';
 
 const stepList = ['Endereço', 'Dados', 'Confirmação'];
-export default function ProtocolForm() {
+export default function CompanyForm() {
 	const [steps, setStep] = useState(1);
 
 	const [addressData, setAddressData] = useState({
@@ -20,41 +21,35 @@ export default function ProtocolForm() {
 		setAddressData((prev) => ({ ...prev, [field]: value }));
 	};
 
-	const [applicantData, setApplicantData] = useState({
+	const [companyData, setCompanyData] = useState({
 		name: '',
-		cpf: '',
+		cnpj: '',
 		phone: '',
 		request: '',
 	});
 
-	const handleApplicantChange = (field: string, value: string) => {
-		setApplicantData((prev) => ({ ...prev, [field]: value }));
-	};
-
-	const [requestData, setRequestData] = useState({
-		serviceType: '',
-		team: '',
-		status: '',
-		materials: '',
-		observations: '',
-	});
-
-	const handleRequestChange = (field: string, value: string) => {
-		setRequestData((prev) => ({ ...prev, [field]: value }));
+	const handleCompanyChange = (field: string, value: string) => {
+		setCompanyData((prev) => ({ ...prev, [field]: value }));
 	};
 
 	const stepRender = () => {
 		switch (steps) {
 			case 2:
-				return;
+				return (
+					<CompanyData
+						name={companyData.name}
+						cnpj={companyData.cnpj}
+						phone={companyData.phone}
+						onChange={handleCompanyChange}
+					/>
+				);
 			case 3:
 				return (
 					<Confirm
-						applicant={{
-							name: applicantData.name,
-							cpf: applicantData.cpf,
-							phone: applicantData.phone,
-							request: applicantData.request,
+						company={{
+							name: companyData.name,
+							cnpj: companyData.cnpj,
+							phone: companyData.phone,
 						}}
 						address={{
 							cep: addressData.cep,
@@ -63,20 +58,6 @@ export default function ProtocolForm() {
 							neighborhood: addressData.neighborhood,
 							city: addressData.city,
 							state: addressData.state,
-						}}
-						requestDetails={{
-							serviceType: requestData.serviceType,
-							team: requestData.team,
-							status: requestData.status,
-							startDate: '01/02/25',
-							endDate: '02/02/25',
-							timeSpent: '20h',
-							materials: [
-								'Material 1 - 10und',
-								'Material 2 - 10und',
-								'Material 3 - 10und',
-							],
-							observations: requestData.observations,
 						}}
 					/>
 				);

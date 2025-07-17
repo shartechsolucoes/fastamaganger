@@ -1,88 +1,45 @@
-import Address from '../Addsress';
 import { StepProgress } from '../../StepProgress';
 import { useState } from 'react';
 import Confirm from './Confirm';
+import MaterialData from './Data';
 
-const stepList = ['Endereço', 'Dados', 'Confirmação'];
+const stepList = ['Dados', 'Confirmação'];
 export default function MaterialForm() {
 	const [steps, setStep] = useState(1);
 
-	const [addressData, setAddressData] = useState({
-		cep: '',
-		address: '',
-		number: '',
-		neighborhood: '',
-		city: '',
-		state: '',
-	});
-
-	const handleChange = (field: string, value: string) => {
-		setAddressData((prev) => ({ ...prev, [field]: value }));
-	};
-
-	const [applicantData, setApplicantData] = useState({
+	const [materialData, setMaterialData] = useState({
 		name: '',
-		cpf: '',
-		phone: '',
-		request: '',
-	});
-
-	const [requestData, setRequestData] = useState({
-		serviceType: '',
-		team: '',
-		status: '',
-		materials: '',
+		unit: '',
+		type: '',
 		observations: '',
 	});
+
+	const handleMaterialChange = (field: string, value: string) => {
+		setMaterialData((prev) => ({ ...prev, [field]: value }));
+	};
 
 	const stepRender = () => {
 		switch (steps) {
 			case 2:
-				return;
-			case 3:
 				return (
 					<Confirm
-						applicant={{
-							name: applicantData.name,
-							cpf: applicantData.cpf,
-							phone: applicantData.phone,
-							request: applicantData.request,
-						}}
-						address={{
-							cep: addressData.cep,
-							address: addressData.address,
-							number: addressData.number,
-							neighborhood: addressData.neighborhood,
-							city: addressData.city,
-							state: addressData.state,
-						}}
-						requestDetails={{
-							serviceType: requestData.serviceType,
-							team: requestData.team,
-							status: requestData.status,
-							startDate: '01/02/25',
-							endDate: '02/02/25',
-							timeSpent: '20h',
-							materials: [
-								'Material 1 - 10und',
-								'Material 2 - 10und',
-								'Material 3 - 10und',
-							],
-							observations: requestData.observations,
+						data={{
+							name: materialData.name,
+							observations: materialData.observations,
+							type: materialData.type,
+							unit: materialData.unit,
 						}}
 					/>
 				);
 
 			default:
 				return (
-					<Address
-						cep={addressData.cep}
-						address={addressData.address}
-						number={addressData.number}
-						neighborhood={addressData.neighborhood}
-						city={addressData.city}
-						state={addressData.state}
-						onChange={handleChange}
+					<MaterialData
+						name={materialData.name}
+						unit={materialData.unit}
+						type={materialData.type}
+						observations={materialData.observations}
+						onChange={handleMaterialChange}
 					/>
 				);
 		}
@@ -115,7 +72,7 @@ export default function MaterialForm() {
 							<button
 								type="button"
 								className="btn btn-success"
-								onClick={() => console.log(addressData)}
+								onClick={() => console.log(materialData)}
 							>
 								Enviar
 							</button>

@@ -10,9 +10,6 @@ export default function ServiceProtocolPage() {
 		<div className="service-page container-fluid">
 			<div className="row header-page align-items-center mb-4">
 				<div className='col-md-6 d-flex align-items-center gap-2'>
-					<button onClick={() => navigate('/services')} className="btn btn-outline-secondary btn-sm me-3">
-						← Voltar para Serviços
-					</button>
 					<div>
 						<h2 className='title-page'>Protocolo Nº {protocoloId}</h2>
 						<p className='url-page'>Dashboard / Protocolos / Detalhes</p>

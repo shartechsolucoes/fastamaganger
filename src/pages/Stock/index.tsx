@@ -6,17 +6,18 @@ import { useState } from 'react';
 
 type StockGroup = {
 	name: string;
-	logo: string;
-	adress: string;
-	neighborhood: string;
+	photo: string;
+	qtd: string;
+	lastInsert: string;
 	status: number;
 };
 
 const initialClasses: StockGroup[] = [
-	{ name: 'Shartech Soluções', logo: 'https://i.pravatar.cc/50?u=1' , adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ name: 'Prefeitura de Registro', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ name: 'Prefeitura de Cajati', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
-	{ name: 'Prefeitura de Ibaiti', logo: 'https://i.pravatar.cc/50?u=1', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 1 },
+	{ name: 'Pneu', photo: 'https://i.pravatar.cc/50?u=1' , qtd: '44', lastInsert: "10/10/2024", status: 1 },
+	{ name: 'Lampada LED 80W', photo: 'https://i.pravatar.cc/50?u=1', qtd: '65', lastInsert: "02/06/2025", status: 1 },
+	{ name: 'Lampada LED 50W', photo: 'https://i.pravatar.cc/50?u=1', qtd: '655', lastInsert: "02/06/2025", status: 1 },
+	{ name: 'Parafuso', photo: 'https://i.pravatar.cc/50?u=1', qtd: '85', lastInsert: "17/07/2025", status: 1 },
+	{ name: 'Conector', photo: 'https://i.pravatar.cc/50?u=1', qtd: '256', lastInsert: "06/06/2025", status: 1 },
 ];
 
 type ActionsMenuProps = {
@@ -63,7 +64,7 @@ export default function ClassListPage() {
 				<div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
 					<div className="avatar avatar-s">
 						<img
-							src={item.logo || 'https://via.placeholder.com/40'}
+							src={item.photo || 'https://via.placeholder.com/40'}
 							alt={item.name}
 							className=""
 						/>
@@ -74,8 +75,8 @@ export default function ClassListPage() {
 				</div>
 			),
 		},
-		{ header: 'Endereço', accessor: (item: StockGroup) => item.adress, sortable: true },
-		{ header: 'Bairro', accessor: (item: StockGroup) => item.neighborhood, sortable: true },
+		{ header: 'QTD', accessor: (item: StockGroup) => item.qtd, sortable: true },
+		{ header: 'Ultima Inclusão', accessor: (item: StockGroup) => item.lastInsert, sortable: true },
 		{ header: 'Status', accessor: (item: StockGroup) => item.status, sortable: true },
 
 		{

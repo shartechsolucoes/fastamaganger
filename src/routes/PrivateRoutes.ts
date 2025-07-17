@@ -117,8 +117,8 @@ export const privateRoutes: RouteItem[] = [
 		access: [0, 1, 2, 3, 4, 5, 6],
 		children: [
 			{
-				name: 'Itens',
-				path: '/stock/items',
+				name: 'Lista de Itens',
+				path: '/stock',
 				icon: '',
 				component: Form,
 				access: [0, 1],
@@ -157,6 +157,14 @@ export const privateRoutes: RouteItem[] = [
 		component: Company,
 		access: [0, 1],
 		children: [
+			{
+				name: 'Lista',
+				path: '/company/',
+				icon: '',
+				component: Company,
+				access: [0, 1],
+				visible: true,
+			},
 			{
 				name: 'Empresa',
 				path: '/company/:number',

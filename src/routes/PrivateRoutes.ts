@@ -16,6 +16,7 @@ import ProtocolBlackList from '../pages/Protocols/BlackList';
 import Services from '../pages/Services';
 import ProtocolForm from '../components/Forms/Protocols';
 import ServiceProtocolPage from '../pages/Protocols/View';
+import MaterialForm from '../components/Forms/Material';
 
 export type RouteItem = {
 	name: string;
@@ -137,6 +138,14 @@ export const privateRoutes: RouteItem[] = [
 				component: Form,
 				access: [0, 1],
 				visible: true,
+			},
+			{
+				name: 'Relatorios',
+				path: '/stock/form',
+				icon: '',
+				component: MaterialForm,
+				access: [0, 1],
+				visible: false,
 			},
 		],
 	},

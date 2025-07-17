@@ -1,11 +1,9 @@
 import Address from '../Addsress';
-import Request from './Request';
-import Applicant from './Applicant';
 import { StepProgress } from '../../StepProgress';
 import { useState } from 'react';
 import Confirm from './Confirm';
 
-const stepList = ['Endereço', 'Solicitante', 'Execução', 'Confirmação'];
+const stepList = ['Endereço', 'Dados', 'Confirmação'];
 export default function ProtocolForm() {
 	const [steps, setStep] = useState(1);
 
@@ -48,27 +46,8 @@ export default function ProtocolForm() {
 	const stepRender = () => {
 		switch (steps) {
 			case 2:
-				return (
-					<Applicant
-						name={applicantData.name}
-						cpf={applicantData.cpf}
-						phone={applicantData.phone}
-						request={applicantData.request}
-						onChange={handleApplicantChange}
-					/>
-				);
+				return;
 			case 3:
-				return (
-					<Request
-						serviceType={requestData.serviceType}
-						team={requestData.team}
-						status={requestData.status}
-						materials={requestData.materials}
-						observations={requestData.observations}
-						onChange={handleRequestChange}
-					/>
-				);
-			case 4:
 				return (
 					<Confirm
 						applicant={{

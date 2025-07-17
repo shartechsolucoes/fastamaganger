@@ -1,12 +1,10 @@
 import Address from '../Addsress';
-import Request from './Request';
-import Applicant from './Applicant';
 import { StepProgress } from '../../StepProgress';
 import { useState } from 'react';
 import Confirm from './Confirm';
 
-const stepList = ['Endereço', 'Solicitante', 'Execução', 'Confirmação'];
-export default function ProtocolForm() {
+const stepList = ['Endereço', 'Dados', 'Confirmação'];
+export default function MaterialForm() {
 	const [steps, setStep] = useState(1);
 
 	const [addressData, setAddressData] = useState({
@@ -29,10 +27,6 @@ export default function ProtocolForm() {
 		request: '',
 	});
 
-	const handleApplicantChange = (field: string, value: string) => {
-		setApplicantData((prev) => ({ ...prev, [field]: value }));
-	};
-
 	const [requestData, setRequestData] = useState({
 		serviceType: '',
 		team: '',
@@ -41,34 +35,11 @@ export default function ProtocolForm() {
 		observations: '',
 	});
 
-	const handleRequestChange = (field: string, value: string) => {
-		setRequestData((prev) => ({ ...prev, [field]: value }));
-	};
-
 	const stepRender = () => {
 		switch (steps) {
 			case 2:
-				return (
-					<Applicant
-						name={applicantData.name}
-						cpf={applicantData.cpf}
-						phone={applicantData.phone}
-						request={applicantData.request}
-						onChange={handleApplicantChange}
-					/>
-				);
+				return;
 			case 3:
-				return (
-					<Request
-						serviceType={requestData.serviceType}
-						team={requestData.team}
-						status={requestData.status}
-						materials={requestData.materials}
-						observations={requestData.observations}
-						onChange={handleRequestChange}
-					/>
-				);
-			case 4:
 				return (
 					<Confirm
 						applicant={{

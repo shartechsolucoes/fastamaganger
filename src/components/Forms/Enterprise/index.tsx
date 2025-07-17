@@ -81,8 +81,8 @@ export default function CompanyForm() {
 		<>
 			<div className="header-page row">
 				<div className="col-4">
-					<h2 className="title-page">Criar Protocolo</h2>
-					<p className="url-page">Dashboard / Protocolo</p>
+					<h2 className="title-page">Criar Empresa</h2>
+					<p className="url-page">Dashboard / Empresa</p>
 				</div>
 				<div className="col-9 d-flex justify-content-end"></div>
 			</div>

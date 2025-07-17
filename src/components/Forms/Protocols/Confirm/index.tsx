@@ -1,130 +1,119 @@
-import React from 'react';
+interface IConfirmProps {
+	applicant: {
+		name: string;
+		cpf: string;
+		phone: string;
+		request: string;
+	};
+	address: {
+		cep: string;
+		address: string;
+		number: string;
+		neighborhood: string;
+		city: string;
+		state: string;
+	};
+	requestDetails: {
+		serviceType: string;
+		team: string;
+		status: string;
+		startDate: string;
+		endDate: string;
+		timeSpent: string;
+		materials: string[]; // exemplo: ['Material 1 - 10und', 'Material 2 - 5und']
+		observations: string;
+	};
+}
 
-export default function Confirm() {
+export default function Confirm({
+	applicant,
+	address,
+	requestDetails,
+}: IConfirmProps) {
 	return (
 		<div className="row">
+			{/* Dados do solicitante */}
 			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Nome
-				</label>
-				<p>Jhon Due</p>
+				<label className="form-label">Nome</label>
+				<p>{applicant.name}</p>
 			</div>
 			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					CPF
-				</label>
-				<p>999.999.999-99</p>
+				<label className="form-label">CPF</label>
+				<p>{applicant.cpf}</p>
 			</div>
 			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Telefone/Celular
-				</label>
-				<p>(99)99999-9999</p>
+				<label className="form-label">Telefone/Celular</label>
+				<p>{applicant.phone}</p>
 			</div>
 			<div className="mb-3 col-12">
-				<label htmlFor="name" className="form-label">
-					Solicitação
-				</label>
-				<p>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione odit
-					dolorum modi consequuntur optio, vero repellendus quae, quas autem
-					repudiandae culpa earum, laborum maxime sed facilis tempora iusto
-					nisi? Vel.
-				</p>
-			</div>
-			<hr />
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					CEP
-				</label>
-				<p>99999-999</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Endereço
-				</label>
-				<p>Rua avenida alameda</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Número
-				</label>
-				<p>999</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Bairro
-				</label>
-				<p>Bairro</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Cidade
-				</label>
-				<p>Cidade</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Estado
-				</label>
-				<p>Estado</p>
-			</div>
-			<hr />
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Tipo de Serviço
-				</label>
-				<p>Iluminação</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Equipe
-				</label>
-				<p>Equipe A</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Status
-				</label>
-				<p>Iniciado</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Data Inicio
-				</label>
-				<p>01/02/25</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Data Finalizado
-				</label>
-				<p>02/02/25</p>
-			</div>
-			<div className="mb-3 col-12 col-md-6">
-				<label htmlFor="name" className="form-label">
-					Tempo (h)
-				</label>
-				<p>20h</p>
-			</div>
-			<div className="mb-3 col-12 ">
-				<label htmlFor="name" className="form-label">
-					Materiais
-				</label>
-				<p>Material 1 - 10und</p>
-				<p>Material 2 - 10und</p>
-				<p>Material 3 - 10und</p>
+				<label className="form-label">Solicitação</label>
+				<p>{applicant.request}</p>
 			</div>
 
+			<hr />
+
+			{/* Endereço */}
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">CEP</label>
+				<p>{address.cep}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Endereço</label>
+				<p>{address.address}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Número</label>
+				<p>{address.number}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Bairro</label>
+				<p>{address.neighborhood}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Cidade</label>
+				<p>{address.city}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Estado</label>
+				<p>{address.state}</p>
+			</div>
+
+			<hr />
+
+			{/* Detalhes do serviço */}
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Tipo de Serviço</label>
+				<p>{requestDetails.serviceType}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Equipe</label>
+				<p>{requestDetails.team}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Status</label>
+				<p>{requestDetails.status}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Data Início</label>
+				<p>{requestDetails.startDate}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Data Finalizado</label>
+				<p>{requestDetails.endDate}</p>
+			</div>
+			<div className="mb-3 col-12 col-md-6">
+				<label className="form-label">Tempo (h)</label>
+				<p>{requestDetails.timeSpent}</p>
+			</div>
 			<div className="mb-3 col-12">
-				<label htmlFor="name" className="form-label">
-					Observação
-				</label>
-				<p>
-					Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione odit
-					dolorum modi consequuntur optio, vero repellendus quae, quas autem
-					repudiandae culpa earum, laborum maxime sed facilis tempora iusto
-					nisi? Vel.
-				</p>
+				<label className="form-label">Materiais</label>
+				{requestDetails.materials.map((item, index) => (
+					<p key={index}>{item}</p>
+				))}
+			</div>
+			<div className="mb-3 col-12">
+				<label className="form-label">Observação</label>
+				<p>{requestDetails.observations}</p>
 			</div>
 		</div>
 	);

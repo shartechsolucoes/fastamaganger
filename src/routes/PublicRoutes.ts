@@ -6,6 +6,7 @@ import SignIn from '../pages/SignIn';
 
 export const publicRoutes = [
 	{ name: 'FastMananger', path: '/landing', component: LandingPage },
+	{ name: 'Acompanhamento', path: '/tracking', component: LandingPage },
 	{ name: 'prices', path: '/prices', component: LandingPrices },
 	{ name: 'register', path: '/register', component: Register },
 	{ name: 'login', path: '/login', component: Login },

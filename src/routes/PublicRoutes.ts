@@ -3,10 +3,11 @@ import LandingPrices from '../pages/LandingPage/pricing';
 import Register from '../pages/LandingPage/register';
 import Login from '../pages/Login';
 import SignIn from '../pages/SignIn';
+import Traking from '../pages/Tracking';
 
 export const publicRoutes = [
 	{ name: 'FastMananger', path: '/landing', component: LandingPage },
-	{ name: 'Acompanhamento', path: '/tracking', component: LandingPage },
+	{ name: 'Acompanhamento', path: '/tracking', component: Traking },
 	{ name: 'prices', path: '/prices', component: LandingPrices },
 	{ name: 'register', path: '/register', component: Register },
 	{ name: 'login', path: '/login', component: Login },

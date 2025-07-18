@@ -2,7 +2,7 @@ import './styles.css';
 import UserPermissionsList from '../../../components/List/Permission';
 import {useState} from "react";
 const allPermissions = [
-	{ id: 'read', name: 'Leitura' },
+	{ id: 'read', name: 'Leituraaa' },
 	{ id: 'write', name: 'Escrita' },
 	{ id: 'edit', name: 'Edição' },
 	{ id: 'delete', name: 'Exclusão' },

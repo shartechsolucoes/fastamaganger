@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
+import {IoIosArrowBack} from "react-icons/io";
 
 export default function ServiceProtocolPage() {
 	const navigate = useNavigate();
@@ -17,6 +18,10 @@ export default function ServiceProtocolPage() {
 				</div>
 
 				<div className='col-md-6 text-end d-flex justify-content-end gap-2'>
+					<button className="btn btn-outline-primary btn-md"
+							onClick={() => navigate(`/protocols/${protocoloId}`)}>
+						<IoIosArrowBack />
+					</button>
 					<button className="btn btn-outline-primary btn-md"
 							onClick={() => navigate(`/protocols/${protocoloId}`)}>
 						Editar

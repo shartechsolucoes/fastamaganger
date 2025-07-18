@@ -31,16 +31,22 @@ export default function Users() {
 	}, []);
 	return (
 		<div>
-			<div className="d-flex pt-0 justify-content-end align-items-center my-4">
-				<NavLink
-					to="form"
-					className="btn btn-info"
-					style={{ height: 'fit-content' }}
-				>
-					Novo
-				</NavLink>
-			</div>
 
+			<div className="header-page row">
+				<div className="col-3">
+					<h2 className="title-page">Protocolos</h2>
+					<p className="url-page">Dashboard / Protocolo</p>
+				</div>
+				<div className="col-9 d-flex justify-content-end">
+					<NavLink
+						to="form"
+						className="btn btn-info"
+						style={{ height: 'fit-content' }}
+					>
+						Adicionar
+					</NavLink>
+				</div>
+			</div>
 			<div className="card list-height pb-0 mb-5 overflow-x-hidden overflow-y-scroll">
 				{users.map((item, index) => (
 					<>

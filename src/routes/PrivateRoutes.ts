@@ -191,12 +191,20 @@ export const privateRoutes: RouteItem[] = [
 		access: [0, 1, 2],
 		children: [
 			{
-				name: 'Novo usuário',
-				path: '/users/form',
+				name: 'Lista',
+				path: '/users',
+				icon: '',
+				component: Users,
+				access: [0, 1],
+				visible: true,
+			},
+			{
+				name: 'Lista',
+				path: '/users/:id',
 				icon: '',
 				component: Form,
 				access: [0, 1],
-				visible: true,
+				visible: false,
 			},
 		],
 	},

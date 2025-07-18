@@ -1,7 +1,23 @@
 import './styles.css';
-
+import UserPermissionsList from '../../../components/List/Permission';
+import {useState} from "react";
+const allPermissions = [
+	{ id: 'read', name: 'Leitura' },
+	{ id: 'write', name: 'Escrita' },
+	{ id: 'edit', name: 'Edição' },
+	{ id: 'delete', name: 'Exclusão' },
+	{ id: 'admin', name: 'Administrador' },
+];
 export default function ClassListPage() {
+	const [selected, setSelected] = useState<string[]>(['read']);
 
+	const handleToggle = (permissionId: string) => {
+		setSelected((prev) =>
+			prev.includes(permissionId)
+				? prev.filter((id) => id !== permissionId)
+				: [...prev, permissionId]
+		);
+	};
 	return (
 		<div>
 			<div className="service-page container-fluid">
@@ -113,7 +129,7 @@ export default function ClassListPage() {
 						Modulo  Estoque<br/>
 						<hr />
 
-						<h5 className="card-title mb-3">Modulos</h5>
+						<h5 className="card-title mb-3">Estilo</h5>
 						Logo da Empresa !colocara no sidebar<br/>
 						Cor Primaria<br/>
 						Cor Secundaria<br/>
@@ -124,7 +140,13 @@ export default function ClassListPage() {
 
 						<h5 className="card-title mb-3">Colaboradores</h5>
 						Lista com Equipe<br/>
-						Nome | usuáro | Cargo | Telefone | Acessos
+						Nome | usuáro | Cargo | Telefone | Acessos<br/>
+						<UserPermissionsList
+							permissions={allPermissions}
+							selected={selected}
+							onToggle={handleToggle}
+						/>
+						Enviar Convite (Email)
 
 					</div>
 				</div>

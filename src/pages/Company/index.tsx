@@ -101,8 +101,8 @@ export default function ClassListPage() {
 		<>
 			<div className="header-page row">
 				<div className='col-3'>
-					<h2 className='title-page'>Turmas</h2>
-					<p className='url-page'>Dashboard / Turmas</p>
+					<h2 className='title-page'>Empresa</h2>
+					<p className='url-page'>Dashboard / Empresa</p>
 				</div>
 				<div className='col-9 d-flex justify-content-end'>
 					<button className="btn btn-primary btn-md" onClick={() => handleOpenModal()}>

@@ -1,118 +1,162 @@
+import { useState } from 'react';
 import './landing.css';
+
 function Landing() {
+	const [formData, setFormData] = useState({
+		nome: '',
+		empresa: '',
+		telefone: '',
+		email: '',
+		senha: '',
+		confirmarSenha: '',
+		comoConheceu: '',
+	});
+	const [mensagem, setMensagem] = useState({ tipo: '', texto: '' });
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prev) => ({ ...prev, [name]: value }));
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		if (formData.senha !== formData.confirmarSenha) {
+			setMensagem({ tipo: 'erro', texto: 'As senhas não coincidem.' });
+			return;
+		}
+
+		// Aqui você pode enviar os dados para a API
+		console.log('Dados de cadastro:', formData);
+
+		setMensagem({ tipo: 'sucesso', texto: 'Cadastro realizado com sucesso!' });
+	};
+
 	return (
-		<>
-			<section className="section contact__v2" id="contact">
-				<div className="container">
-					<div className="row mb-5">
-						<div className="col-md-6 col-lg-7 mx-auto text-center">
-							<span
-								className="subtitle text-uppercase mb-3 aos-init aos-animate"
-								data-aos="fade-up"
-								data-aos-delay="0"
-							>
-								Cadastro
-							</span>
-							<h2
-								className="h2 fw-bold mb-3 aos-init aos-animate"
-								data-aos="fade-up"
-								data-aos-delay="0"
-							>
-								Faça seu cadastro
-							</h2>
-							<p
-								data-aos="fade-up"
-								data-aos-delay="100"
-								className="aos-init aos-animate"
-							></p>
-						</div>
+		<section className="section contact__v2" id="contact">
+			<div className="container">
+				<div className="row mb-5">
+					<div className="col-md-6 col-lg-7 mx-auto text-center">
+						<span className="subtitle text-uppercase mb-3">Cadastro</span>
+						<h2 className="h2 fw-bold mb-3">Faça seu cadastro</h2>
+						<p>Comece agora mesmo a usar a plataforma gratuitamente!</p>
 					</div>
-					<div className="row">
-						<div className="col-md-4">
-							<div className="d-flex gap-5 flex-column"></div>
-						</div>
-						<div className="col-md-8">
-							<div
-								className="form-wrapper aos-init aos-animate"
-								data-aos="fade-up"
-								data-aos-delay="300"
-							>
-								<form id="contactForm">
-									<div className="row gap-3 mb-3">
-										<div className="col-md-12">
-											<label className="mb-2" htmlFor="name">
-												Name
-											</label>
-											<input
-												className="form-control"
-												id="name"
-												type="text"
-												name="name"
-												required=""
-											/>
-										</div>
-										<div className="col-md-12">
-											<label className="mb-2" htmlFor="email">
-												Email
-											</label>
-											<input
-												className="form-control"
-												id="email"
-												type="email"
-												name="email"
-												required=""
-											/>
-										</div>
+				</div>
+				<div className="row">
+					<div className="col-md-12">
+						<div className="form-wrapper">
+							<form onSubmit={handleSubmit}>
+								<div className="row mb-3">
+									<div className="col-md-6 mb-3">
+										<label className="form-label">Nome completo</label>
+										<input
+											type="text"
+											className="form-control"
+											name="nome"
+											value={formData.nome}
+											onChange={handleChange}
+											required
+										/>
 									</div>
-									<div className="row gap-3 mb-3">
-										<div className="col-md-12">
-											<label className="mb-2" htmlFor="subject">
-												Subject
-											</label>
-											<input
-												className="form-control"
-												id="subject"
-												type="text"
-												name="subject"
-											/>
-										</div>
+									<div className="col-md-6 mb-3">
+										<label className="form-label">Nome da empresa</label>
+										<input
+											type="text"
+											className="form-control"
+											name="empresa"
+											value={formData.empresa}
+											onChange={handleChange}
+											required
+										/>
 									</div>
-									<div className="row gap-3 gap-md-0 mb-3">
-										<div className="col-md-12">
-											<label className="mb-2" htmlFor="message">
-												Message
-											</label>
-											<textarea
-												className="form-control"
-												id="message"
-												name="message"
-												rows="5"
-												required=""
-											></textarea>
-										</div>
+									<div className="col-md-6 mb-3">
+										<label className="form-label">Telefone</label>
+										<input
+											type="tel"
+											className="form-control"
+											name="telefone"
+											value={formData.telefone}
+											onChange={handleChange}
+											placeholder="(99) 99999-9999"
+											required
+										/>
 									</div>
-									<button className="btn btn-primary fw-semibold" type="submit">
-										Cadastrar
-									</button>
-								</form>
-								<div
-									className="mt-3 d-none alert alert-success"
-									id="successMessage"
-								>
-									Message sent successfully!
+									<div className="col-md-6 mb-3">
+										<label className="form-label">E-mail</label>
+										<input
+											type="email"
+											className="form-control"
+											name="email"
+											value={formData.email}
+											onChange={handleChange}
+											required
+										/>
+									</div>
+									<div className="col-md-6 mb-3">
+										<label className="form-label">Senha</label>
+										<input
+											type="password"
+											className="form-control"
+											name="senha"
+											value={formData.senha}
+											onChange={handleChange}
+											required
+										/>
+									</div>
+									<div className="col-md-6 mb-3">
+										<label className="form-label">Confirme a senha</label>
+										<input
+											type="password"
+											className="form-control"
+											name="confirmarSenha"
+											value={formData.confirmarSenha}
+											onChange={handleChange}
+											required
+										/>
+									</div>
+									<div className="col-12 mb-4">
+										<label className="form-label">
+											Como conheceu a plataforma?
+										</label>
+										<select
+											className="form-select"
+											name="comoConheceu"
+											value={formData.comoConheceu}
+											onChange={handleChange}
+											required
+										>
+											<option value="">Selecione uma opção</option>
+											<option value="google">Pesquisa no Google</option>
+											<option value="instagram">Instagram</option>
+											<option value="indicacao">Indicação</option>
+											<option value="outro">Outro</option>
+										</select>
+									</div>
+									<div className="col-12 d-grid">
+										<button
+											type="submit"
+											className="btn btn-primary fw-semibold"
+										>
+											Cadastrar
+										</button>
+									</div>
 								</div>
+							</form>
+
+							{mensagem.texto && (
 								<div
-									className="mt-3 d-none alert alert-danger"
-									id="errorMessage"
+									className={`mt-3 alert alert-${
+										mensagem.tipo === 'sucesso' ? 'success' : 'danger'
+									}`}
 								>
-									Message sending failed. Please try again later.
+									{mensagem.texto}
 								</div>
-							</div>
+							)}
 						</div>
 					</div>
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 }
 

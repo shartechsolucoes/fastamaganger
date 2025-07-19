@@ -6,12 +6,15 @@ import { privateRoutes } from './routes/PrivateRoutes.ts';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './layout/index.tsx';
 import 'react-datepicker/dist/react-datepicker.css';
+import LandingPageLayout from './layout/LandingPage/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
 	<BrowserRouter>
 		<Routes>
-			{publicRoutes.map(({ path, component }) => (
-				<Route key={path} path={path} Component={component} />
+			{publicRoutes.map(({ path, component, layout }) => (
+				<Route Component={layout}>
+					<Route key={path} path={path} Component={component} />
+				</Route>
 			))}
 			<Route element={<Layout />}>
 				{privateRoutes.map(({ path, component, children }) => (

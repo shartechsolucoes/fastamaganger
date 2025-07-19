@@ -9,7 +9,7 @@ import Traking from '../pages/Tracking';
 export const publicRoutes = [
 	{
 		name: 'FastMananger',
-		path: '/landing',
+		path: '/',
 		component: LandingPage,
 		layout: LandingPageLayout,
 	},

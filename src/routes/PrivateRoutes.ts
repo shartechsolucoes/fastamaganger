@@ -32,7 +32,7 @@ export type RouteItem = {
 export const privateRoutes: RouteItem[] = [
 	{
 		name: 'Dashboard',
-		path: '/',
+		path: '/dashboard',
 		icon: 'dashboard',
 		component: Dashboard,
 		access: [0, 1, 2, 3, 4, 5, 6],

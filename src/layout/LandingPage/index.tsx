@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router';
+import { NavLink, Outlet } from 'react-router';
+import { MENU } from './data';
 
 export default function LandingPageLayout() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -34,36 +35,13 @@ export default function LandingPageLayout() {
 					id="navbarSupportedContent"
 				>
 					<ul className="navbar-nav ms-auto">
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Home
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Sobre
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Planos
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Modulos
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Clientes
-							</a>
-						</li>
-						<li className="nav-item">
-							<a className="nav-link" href="#">
-								Protocolos
-							</a>
-						</li>
+						{MENU.map((menu) => (
+							<li className="nav-item">
+								<NavLink className="nav-link" to={menu.router}>
+									{menu.title}
+								</NavLink>
+							</li>
+						))}
 						<li className="nav-item">
 							<a className="btn btn-outline-primary mx-1" href="register">
 								Cadastrar

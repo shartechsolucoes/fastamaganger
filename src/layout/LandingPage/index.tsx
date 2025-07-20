@@ -63,6 +63,51 @@ export default function LandingPageLayout() {
 					</div>
 				</div>
 			</section>
+
+			<footer className="text-light pt-5 pb-4">
+				<div className="container text-md-left">
+					<div className="row">
+
+						<div className="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+							<h6 className="text-uppercase fw-bold">FastMananger</h6>
+							<hr className="mb-3 mt-0 d-inline-block mx-auto"/>
+							<p>Transformamos sua gestão em algo inteligente e eficiente com soluções modernas e
+								personalizadas.</p>
+						</div>
+
+						<div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+							<h6 className="text-uppercase fw-bold">Links</h6>
+							<hr className="mb-3 mt-0 d-inline-block mx-auto"/>
+							<p><a href="#servicos" className="text-light text-decoration-none">Serviços</a></p>
+							<p><a href="#sobre" className="text-light text-decoration-none">Sobre</a></p>
+							<p><a href="#contato" className="text-light text-decoration-none">Contato</a></p>
+							<p><a href="#planos" className="text-light text-decoration-none">Planos</a></p>
+						</div>
+
+						<div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+							<h6 className="text-uppercase fw-bold">Contato</h6>
+							<hr className="mb-3 mt-0 d-inline-block mx-auto"/>
+							<p><i className="fas fa-home me-2"></i> Rua Exemplo, 123 - Cidade</p>
+							<p><i className="fas fa-envelope me-2"></i> contato@fastmananger.com</p>
+							<p><i className="fas fa-phone me-2"></i> +55 (11) 99999-9999</p>
+						</div>
+
+					</div>
+
+					<div className="text-center mt-4">
+						<a href="#" className="btn btn-outline-light btn-floating m-1"><i
+							className="fab fa-facebook-f"></i></a>
+						<a href="#" className="btn btn-outline-light btn-floating m-1"><i
+							className="fab fa-instagram"></i></a>
+						<a href="#" className="btn btn-outline-light btn-floating m-1"><i
+							className="fab fa-linkedin-in"></i></a>
+					</div>
+
+					<div className="text-center mt-3">
+						<small>© 2025 Shartech. Todos os direitos reservados.</small>
+					</div>
+				</div>
+			</footer>
 		</div>
 	);
 }

@@ -18,26 +18,38 @@ export default function ClassListPage() {
 
 			<div className="col-12">
 				<div className='card'>
+
+
+
 					<div className='card-body'>
+						<div className="row">
+							<div className="col-md-3">
+								<label className="form-label">Data Inicial</label>
+								<input type="date" className="form-control" />
+								<small className="text-muted"></small>
+							</div>
+							<div className="col-md-3">
+								<label className="form-label">Data Final</label>
+								<input type="date" className="form-control" />
+								<small className="text-muted"></small>
+							</div>
+						</div>
 
-
-						Dados do protocolo <br/>
-						Numero<br/>
-						Ex: 01 20250710 0001 <br/><br/>
-						Endereço<br/>
-						Bairro<br/>
-						Cidade<br/>
-						Estado<br/>
-						Reponsavel <br/>
-						Listar responsavel por cada tipo de serviço<br/><br/>
-						Data de abertura <br/>
-						Data de execução <br/>
-						Tempo de duração <br/>
-						Materiais usados <br/>
-						Status<br/>
+						Protocolos<br/>
+						Quantidade protocolos abertos | Quantidade protocolos Finalizados | Quantidade protocolos Pendentes <br/>
+						Lista(NP, Endereço, Data Solicitação, data Execução, Solicitante Inicial, Responsavel, Tipo ) e mapa mostrando<br/>
 						<br/>
+						Solicitantes<br/>
+						Lista e mapa mostrando<br/><br/>
 
-						Lista de solitantes (reclamantes)
+						Materiais Utilizados<br/>
+						Utilizados (data, quantidade, NP) <br/><br/>
+
+						Materiais Em Estoque<br/>
+						Utilizados (data, quantidade, NP) <br/><br/>
+
+						Colaboradores<br/>
+						Utilizados (data, quantidade, NP) <br/><br/>
 
 					</div>
 				</div>

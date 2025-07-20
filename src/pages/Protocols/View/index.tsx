@@ -29,6 +29,9 @@ export default function ServiceProtocolPage() {
 					<button className="btn btn-primary btn-md">
 						Salvar
 					</button>
+					<button className="btn btn-primary btn-md">
+						Exportar
+					</button>
 				</div>
 			</div>
 
@@ -67,18 +70,36 @@ export default function ServiceProtocolPage() {
 					<h5 className="card-title mb-3">Responsável & Execução</h5>
 
 					<div className="row mb-3">
-						<div className="col-md-6">
-							<label className="form-label">Responsável</label>
-							<input type="text" className="form-control" />
+						<div className="col-12 mb-4">
+							<label className="form-label">
+								Funcionarios
+							</label>
+							<select
+								className="form-select"
+								name="Responsável"
+								required
+							>
+								<option value="">Selecione uma opção</option>
+								<option value="google">Edson Rodrigues</option>
+								<option value="instagram">Alexandre</option>
+								<option value="indicacao">Luciano Silva</option>
+							</select>
 							<small className="text-muted">Listar responsável por cada tipo de serviço</small>
 						</div>
 						<div className="col-md-3">
 							<label className="form-label">Data de Abertura</label>
 							<input type="date" className="form-control" />
+							<small className="text-muted">Apenas Visualização</small>
+						</div>
+						<div className="col-md-3">
+							<label className="form-label">Data programada para realização</label>
+							<input type="date" className="form-control" />
+							<small className="text-muted">Informação adicionada quando o gerente informar o responsável ou pode ser informada no cadastro de cada instituição para cada tipo de serviço (um tempo estimado)</small>
 						</div>
 						<div className="col-md-3">
 							<label className="form-label">Data de Execução</label>
 							<input type="date" className="form-control" />
+							<small className="text-muted">Mostrar Apenas quando Finalizado (data de realização do serviço por um tecnico designado)</small>
 						</div>
 					</div>
 
@@ -90,6 +111,7 @@ export default function ServiceProtocolPage() {
 						<div className="col-md-8">
 							<label className="form-label">Materiais Usados</label>
 							<textarea className="form-control" rows={2}></textarea>
+							<small className="text-muted">Apenas Visualização (dados importados do cadastro do serviço</small>
 						</div>
 					</div>
 

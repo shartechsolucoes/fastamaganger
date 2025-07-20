@@ -10,6 +10,8 @@ function Landing() {
 		senha: '',
 		confirmarSenha: '',
 		comoConheceu: '',
+		typeCompany: '',
+		numberEmployees: '',
 	});
 	const [mensagem, setMensagem] = useState({ tipo: '', texto: '' });
 
@@ -54,17 +56,6 @@ function Landing() {
 											className="form-control"
 											name="nome"
 											value={formData.nome}
-											onChange={handleChange}
-											required
-										/>
-									</div>
-									<div className="col-md-6 mb-3">
-										<label className="form-label">Nome da empresa</label>
-										<input
-											type="text"
-											className="form-control"
-											name="empresa"
-											value={formData.empresa}
 											onChange={handleChange}
 											required
 										/>
@@ -130,6 +121,51 @@ function Landing() {
 											<option value="instagram">Instagram</option>
 											<option value="indicacao">Indicação</option>
 											<option value="outro">Outro</option>
+										</select>
+									</div>
+									<div className="col-md-6 mb-3">
+										<label className="form-label">Nome da empresa</label>
+										<input
+											type="text"
+											className="form-control"
+											name="empresa"
+											value={formData.empresa}
+											onChange={handleChange}
+											required
+										/>
+									</div>
+									<div className="col-12 mb-4">
+										<label className="form-label">
+											Empresa?
+										</label>
+										<select
+											className="form-select"
+											name="typeCompany"
+											value={formData.typeCompany}
+											onChange={handleChange}
+											required
+										>
+											<option value="">Selecione uma opção</option>
+											<option value="private">Privada</option>
+											<option value="prublic">Publica</option>
+										</select>
+									</div>
+									<div className="col-12 mb-4">
+										<label className="form-label">
+											Funcionarios
+										</label>
+										<select
+											className="form-select"
+											name="numberEmployees"
+											value={formData.numberEmployees}
+											onChange={handleChange}
+											required
+										>
+											<option value="">Selecione uma opção</option>
+											<option value="google">1 a 5</option>
+											<option value="instagram">6 a 10</option>
+											<option value="indicacao">10 a 20</option>
+											<option value="outro">mais de 20</option>
 										</select>
 									</div>
 									<div className="col-12 d-grid">

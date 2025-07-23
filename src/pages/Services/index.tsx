@@ -7,6 +7,7 @@ type ServicesGroup = {
 	id: number;
 	numberProtocol: number;
 	date: string;
+	idResponsible: string;
 	adress: string;
 	neighborhood: string;
 	serviceType: string;
@@ -14,10 +15,10 @@ type ServicesGroup = {
 };
 
 const initialClasses: ServicesGroup[] = [
-	{ id:1, numberProtocol: 65828, date: "21/06/2025", serviceType: 'Limpeza', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Pendente' },
-	{ id:1, numberProtocol: 65859, date: "21/06/2025", serviceType: 'Iluminação', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Finalizado' },
-	{ id:1, numberProtocol: 65867, date: "21/06/2025", serviceType: 'Zeladoria', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Pendente' },
-	{ id:1, numberProtocol: 65888, date: "21/06/2025", serviceType: 'Poda de Arvore', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Em trabalho' },
+	{ id:1, numberProtocol: 65828, date: "21/06/2025", serviceType: 'Limpeza', idResponsible:'Luciano', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Pendente' },
+	{ id:1, numberProtocol: 65859, date: "21/06/2025", serviceType: 'Iluminação', idResponsible:'Luciano', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Finalizado' },
+	{ id:1, numberProtocol: 65867, date: "21/06/2025", serviceType: 'Zeladoria', idResponsible:'Luciano', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Pendente' },
+	{ id:1, numberProtocol: 65888, date: "21/06/2025", serviceType: 'Poda de Arvore', idResponsible:'Luciano', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Em trabalho' },
 ];
 
 type ActionsMenuProps = {
@@ -68,6 +69,7 @@ export default function ClassListPage() {
 		},
 		{ header: 'Data', accessor: (item: ServicesGroup) => item.date, sortable: true },
 		{ header: 'Serviço', accessor: (item: ServicesGroup) => item.serviceType, sortable: true },
+		{ header: 'Responsável', accessor: (item: ServicesGroup) => item.idResponsible, sortable: true },
 		{ header: 'Endereço', accessor: (item: ServicesGroup) => item.adress, sortable: true },
 		{ header: 'Bairro', accessor: (item: ServicesGroup) => item.neighborhood, sortable: true },
 		{ header: 'Status', accessor: (item: ServicesGroup) => item.status, sortable: true },
@@ -90,8 +92,8 @@ export default function ClassListPage() {
 		<div>
 			<div className="header-page row">
 				<div className='col-3'>
-					<h2 className='title-page'>Turmas</h2>
-					<p className='url-page'>Dashboard / Turmas</p>
+					<h2 className='title-page'>Serviços</h2>
+					<p className='url-page'>Dashboard / Serviços</p>
 				</div>
 				<div className='col-9 d-flex justify-content-end'>
 					<button className="btn btn-primary btn-md" onClick={() => ''}>

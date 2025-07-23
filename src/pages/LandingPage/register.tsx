@@ -12,7 +12,9 @@ function Landing() {
 		comoConheceu: '',
 		typeCompany: '',
 		numberEmployees: '',
+		companyProfile: '', // Novo campo
 	});
+
 	const [mensagem, setMensagem] = useState({ tipo: '', texto: '' });
 
 	const handleChange = (e) => {
@@ -49,6 +51,12 @@ function Landing() {
 						<div className="form-wrapper">
 							<form onSubmit={handleSubmit}>
 								<div className="row mb-3">
+									{/* DADOS PESSOAIS */}
+									<div className="col-12 mb-3">
+										<h5>Dados Pessoais</h5>
+										<hr />
+									</div>
+
 									<div className="col-md-6 mb-3">
 										<label className="form-label">Nome completo</label>
 										<input
@@ -123,6 +131,16 @@ function Landing() {
 											<option value="outro">Outro</option>
 										</select>
 									</div>
+
+									{/* DADOS DA EMPRESA */}
+									<div className="col-12 mb-3 mt-3">
+										<h5>
+											Dados da Empresa{' '}
+											<span className="text-muted">(opcional)</span>
+										</h5>
+										<hr />
+									</div>
+
 									<div className="col-md-6 mb-3">
 										<label className="form-label">Nome da empresa</label>
 										<input
@@ -131,43 +149,50 @@ function Landing() {
 											name="empresa"
 											value={formData.empresa}
 											onChange={handleChange}
-											required
 										/>
 									</div>
-									<div className="col-12 mb-4">
-										<label className="form-label">
-											Empresa?
-										</label>
+									<div className="col-md-6 mb-3">
+										<label className="form-label">Perfil da empresa</label>
+										<input
+											type="text"
+											className="form-control"
+											name="companyProfile"
+											value={formData.companyProfile}
+											onChange={handleChange}
+											placeholder="Ex: Construção civil, Energia, etc."
+										/>
+									</div>
+									<div className="col-md-6 mb-3">
+										<label className="form-label">Tipo de empresa</label>
 										<select
 											className="form-select"
 											name="typeCompany"
 											value={formData.typeCompany}
 											onChange={handleChange}
-											required
 										>
 											<option value="">Selecione uma opção</option>
 											<option value="private">Privada</option>
-											<option value="prublic">Publica</option>
+											<option value="public">Pública</option>
 										</select>
 									</div>
-									<div className="col-12 mb-4">
+									<div className="col-md-6 mb-4">
 										<label className="form-label">
-											Funcionarios
+											Quantidade de funcionários
 										</label>
 										<select
 											className="form-select"
 											name="numberEmployees"
 											value={formData.numberEmployees}
 											onChange={handleChange}
-											required
 										>
 											<option value="">Selecione uma opção</option>
-											<option value="google">1 a 5</option>
-											<option value="instagram">6 a 10</option>
-											<option value="indicacao">10 a 20</option>
-											<option value="outro">mais de 20</option>
+											<option value="1-5">1 a 5</option>
+											<option value="6-10">6 a 10</option>
+											<option value="11-20">11 a 20</option>
+											<option value="20+">Mais de 20</option>
 										</select>
 									</div>
+
 									<div className="col-12 d-grid">
 										<button
 											type="submit"

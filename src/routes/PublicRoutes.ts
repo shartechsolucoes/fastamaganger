@@ -4,7 +4,8 @@ import LandingPrices from '../pages/LandingPage/pricing';
 import Register from '../pages/LandingPage/register';
 import Login from '../pages/Login';
 import SignIn from '../pages/SignIn';
-import Traking from '../pages/Tracking';
+import Traking from '../frames/Tracking';
+import PublicProtocol from '../pages/PublicProtocol';
 
 export const publicRoutes = [
 	{
@@ -13,7 +14,6 @@ export const publicRoutes = [
 		component: LandingPage,
 		layout: LandingPageLayout,
 	},
-	{ name: 'Acompanhamento', path: '/tracking', component: Traking },
 	{
 		name: 'prices',
 		path: '/prices',
@@ -26,6 +26,13 @@ export const publicRoutes = [
 		component: Register,
 		layout: LandingPageLayout,
 	},
+	{
+		name: 'Protocolos',
+		path: '/public-protocols',
+		component: PublicProtocol,
+		layout: LandingPageLayout,
+	},
+	{ name: 'Acompanhamento', path: 'frame/tracking', component: Traking },
 	{ name: 'login', path: '/login', component: Login },
 	{ name: 'signIn', path: '/sign-in', component: SignIn },
 ];

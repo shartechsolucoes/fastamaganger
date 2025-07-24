@@ -3,6 +3,7 @@ import DynamicTable from "../../../components/List";
 import { Link } from 'react-router';
 import {useState} from "react";
 import BadgePriority from "../../../components/Badge/Priority/Index.tsx"
+import BadgeStatus from "../../../components/Badge/Status/Index.tsx"
 
 type ProtocolsGroup = {
 	number: number;
@@ -121,7 +122,7 @@ const initialClasses: ProtocolsGroup[] = [
 		adress: 'Rua Arnaldo Gusi 44',
 		neighborhood: 'Xaxim',
 		idPriority: 1,
-		status: 1,
+		status: 2,
 	},
 ];
 
@@ -153,11 +154,6 @@ export default function ClassListPage() {
 			sortable: true,
 		},
 		{
-			header: 'Tempo Medio',
-			accessor: (item: ProtocolsGroup) => item.date,
-			sortable: true,
-		},
-		{
 			header: 'Serviço',
 			accessor: (item: ProtocolsGroup) => item.serviceType,
 			sortable: true,
@@ -179,8 +175,8 @@ export default function ClassListPage() {
 		},
 		{
 			header: 'Status',
-			accessor: (item: ProtocolsGroup) => item.status,
-			sortable: true,
+			accessor: (item: ProtocolsGroup) => <BadgeStatus status={item.status} />,
+			sortable: true
 		},
 		{
 			header: 'Prioridade',

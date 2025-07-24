@@ -2,6 +2,9 @@ import './styles.css';
 import DynamicTable from '../../components/List/index.tsx';
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import BadgeStatus from "../../components/Badge/Status";
+import BadgePriority from "../../components/Badge/Priority";
+import {MdDeleteOutline, MdModeEdit, MdModeEditOutline} from "react-icons/md";
 
 type ProtocolsGroup = {
 	number: number;
@@ -127,13 +130,13 @@ export default function ClassListPage() {
 		},
 		{
 			header: 'Status',
-			accessor: (item: ProtocolsGroup) => item.status,
-			sortable: true,
+			accessor: (item: ProtocolsGroup) => <BadgeStatus status={item.status} />,
+			sortable: true
 		},
 		{
 			header: 'Prioridade',
-			accessor: (item: ProtocolsGroup) => item.priority,
-			sortable: true,
+			accessor: (item: ProtocolsGroup) => <BadgePriority idPriority={item.priority} />,
+			sortable: true
 		},
 
 		{
@@ -141,10 +144,23 @@ export default function ClassListPage() {
 			accessor: (item: ProtocolsGroup) => {
 				const index = classes.findIndex((i) => i.number === item.number);
 				return (
-					<ActionsMenu onEdit={() => ''} onDelete={() => handleDelete(index)} />
+					<div style={{ display: 'flex', gap: '0.5rem' }}>
+						<button
+							className="btn btn-sm btn-primary"
+							onClick={() => handleEdit(index)}
+						>
+							<MdModeEditOutline />
+						</button>
+						<button
+							className="btn btn-sm btn-danger"
+							onClick={() => handleDelete(index)}
+						>
+							<MdDeleteOutline />
+						</button>
+					</div>
 				);
 			},
-		},
+		}
 	];
 
 	return (

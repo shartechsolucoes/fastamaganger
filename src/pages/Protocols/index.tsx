@@ -156,7 +156,7 @@ export default function ClassListPage() {
 							onClick={() => handleDelete(index)}
 						>
 							<MdDeleteOutline />
-						</button>
+						</button> 
 					</div>
 				);
 			},

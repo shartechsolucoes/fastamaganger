@@ -68,7 +68,7 @@ const initialClasses: ProtocolsGroup[] = [
 		adress: 'Rua Arnaldo Gusi 44',
 		neighborhood: 'Xaxim',
 		idPriority: 1,
-		status: 1,
+		status: 3,
 	},
 	{
 		number: 1202507100001,

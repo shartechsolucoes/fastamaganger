@@ -9,6 +9,7 @@ export default function Users() {
 		Array<{
 			name: string;
 			id: string;
+			company: string;
 			login: string;
 			access_level: number;
 			email: string;
@@ -34,8 +35,8 @@ export default function Users() {
 
 			<div className="header-page row">
 				<div className="col-3">
-					<h2 className="title-page">Protocolos</h2>
-					<p className="url-page">Dashboard / Protocolo</p>
+					<h2 className="title-page">Usuários</h2>
+					<p className="url-page">Dashboard / Usuários</p>
 				</div>
 				<div className="col-9 d-flex justify-content-end">
 					<NavLink
@@ -45,6 +46,13 @@ export default function Users() {
 					>
 						Adicionar
 					</NavLink>
+					<NavLink
+						to="form"
+						className="btn btn-info"
+						style={{ height: 'fit-content' }}
+					>
+						Buscar
+					</NavLink>
 				</div>
 			</div>
 			<div className="card list-height pb-0 mb-5 overflow-x-hidden overflow-y-scroll">
@@ -53,6 +61,7 @@ export default function Users() {
 						<ListItemUsers
 							key={index}
 							title={item.name}
+							empresa={'Empresa'}
 							id={item.id}
 							login={item.login}
 							email={item.email}

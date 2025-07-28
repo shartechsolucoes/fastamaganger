@@ -1,17 +1,18 @@
 interface BadgeProps {
     idPriority: number;
 }
-
-const getPriorityInfo = (idPriority: string | number) => {
+const getPriorityInfo = (idPriority: number) => {
     switch (idPriority) {
         case 1:
-            return { colorClass: 'bg-label-success', label: 'Baixa' };
+            return { colorClass: 'bg-label-error', label: 'Baixa' };
         case 2:
             return { colorClass: 'bg-label-error', label: 'Média' };
         case 3:
             return { colorClass: 'bg-label-warning', label: 'Alta' };
-        default:
+        case 4:
             return { colorClass: 'bg-label-success', label: 'Urgente' };
+        default:
+            return { colorClass: '', label: 'Proridade não Definida' };
     }
 };
 

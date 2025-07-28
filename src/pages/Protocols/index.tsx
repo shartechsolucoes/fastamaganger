@@ -3,8 +3,8 @@ import DynamicTable from '../../components/List/index.tsx';
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import BadgeStatus from "../../components/Badge/Status";
-import BadgePriority from "../../components/Badge/Priority";
-import {MdDeleteOutline, MdModeEdit, MdModeEditOutline} from "react-icons/md";
+import BadgePriority from "../../components/Badge/Priority/Index.tsx";
+import {MdDeleteOutline, MdModeEditOutline} from "react-icons/md";
 
 type ProtocolsGroup = {
 	number: number;

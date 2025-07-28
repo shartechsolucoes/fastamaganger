@@ -1,60 +1,36 @@
-.service-page {
-  padding: 20px;
-  background-color: #f8f9fa;
+.bg-label-success {
+  background-color: #d4edda;
+  color: #155724;
 }
 
-.title-page {
-  font-size: 24px;
-  font-weight: 600;
+.bg-label-error {
+  background-color: #f8d7da;
+  color: #721c24;
 }
 
-.url-page {
-  font-size: 14px;
-  color: #888;
+.bg-label-warning {
+  background-color: #fff3cd;
+  color: #856404;
 }
 
-.card {
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 30px;
+.bg-label-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
 }
 
-.card-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
+.bg-label-danger {
+  background-color: #f5c6cb;
+  color: #721c24;
 }
 
-.btn-primary {
-  padding: 8px 24px;
-  font-weight: 500;
-}
-
-.form-label {
-  font-weight: 500;
-}
-
-.pin-label {
-  background-color: #4285F4;
-  border: 1px solid #f8f8f8;
-  border-radius: 8px;
-  color: #FFFFFF !important;
-  font-size: 11px !important;
-  padding: 9px 12px;
-  position: relative;
-}
-
-.pin-label::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 100%;
-  transform: translate(-50%, 0);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid #4285F4;
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
 }

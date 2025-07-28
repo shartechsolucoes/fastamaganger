@@ -1,55 +1,61 @@
 import './styles.css';
 import DynamicTable from '../../components/List/index.tsx';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import BadgeStatus from "../../components/Badge/Status";
+import BadgePriority from "../../components/Badge/Priority";
+import {MdDeleteOutline, MdModeEditOutline} from "react-icons/md";
 
-type ServicesGroup = {
-	id: number;
-	numberProtocol: number;
+type ProtocolsGroup = {
+	number: number;
 	date: string;
-	idResponsible: string;
 	adress: string;
 	neighborhood: string;
 	serviceType: string;
-	status: string;
+	priority: number;
+	status: number;
 };
 
-const initialClasses: ServicesGroup[] = [
-	{ id:1, numberProtocol: 65828, date: "21/06/2025", serviceType: 'Limpeza', idResponsible:'Luciano', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Pendente' },
-	{ id:1, numberProtocol: 65859, date: "21/06/2025", serviceType: 'Iluminação', idResponsible:'Luciano', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Finalizado' },
-	{ id:1, numberProtocol: 65867, date: "21/06/2025", serviceType: 'Zeladoria', idResponsible:'Luciano', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Pendente' },
-	{ id:1, numberProtocol: 65888, date: "21/06/2025", serviceType: 'Poda de Arvore', idResponsible:'Luciano', adress: 'Rua Arnaldo Gusi 44', neighborhood: "Xaxim", status: 'Em trabalho' },
+const initialClasses: ProtocolsGroup[] = [
+	{
+		number: 65828,
+		date: "21/06/2025",
+		adress: "Rua Arnaldo Gusi 44",
+		neighborhood: "Xaxim",
+		serviceType: "Limpeza",
+		priority: 2,
+		status: 5,
+	},
+	{
+		number: 65829,
+		date: "21/06/2025",
+		adress: "Rua Carlos Gomes 100",
+		neighborhood: "Centro",
+		serviceType: "Poda",
+		priority: 3,
+		status: 1,
+	},
+	{
+		number: 65829,
+		date: "21/06/2025",
+		adress: "Rua Carlos Gomes 100",
+		neighborhood: "Centro",
+		serviceType: "Poda",
+		priority: 1,
+		status: 2,
+	},
+	{
+		number: 65829,
+		date: "21/06/2025",
+		adress: "Rua Carlos Gomes 100",
+		neighborhood: "Centro",
+		serviceType: "Poda",
+		priority: 2,
+		status: 1,
+	},
 ];
-
-type ActionsMenuProps = {
-	onEdit: () => void;
-	onDelete: () => void;
-};
-
-function ActionsMenu({ onEdit, onDelete }: ActionsMenuProps) {
-	const [open, setOpen] = useState(false);
-
-	const toggleMenu = () => setOpen(prev => !prev);
-	const handleAction = (action: () => void) => {
-		action();
-		setOpen(false);
-	};
-
-	return (
-		<div className="dropdown-wrapper">
-			<button className="action-button" onClick={toggleMenu}>⋮</button>
-			{open && (
-				<div className="dropdown-menu-list">
-					<div onClick={() => handleAction(onEdit)}>Editar</div>
-					<div onClick={() => handleAction(onDelete)} style={{ color: 'red' }}>Excluir</div>
-				</div>
-			)}
-		</div>
-	);
-}
-
 export default function ClassListPage() {
-	const [classes, setClasses] = useState<ServicesGroup[]>(initialClasses);
+	const [classes, setClasses] = useState<ProtocolsGroup[]>(initialClasses);
 
 	const handleDelete = (index: number) => {
 		const updated = classes.filter((_, i) => i !== index);
@@ -60,50 +66,91 @@ export default function ClassListPage() {
 	const columns = [
 		{
 			header: 'Protocolo',
-			accessor: (item: ServicesGroup) => (
-				<Link to={`/protocols/12`} style={{ textDecoration: 'none', color: '#1976d2' }}>
-					{item.numberProtocol}
+			accessor: (item: ProtocolsGroup) => (
+				<Link
+					to={`/protocols/12`}
+					style={{ textDecoration: 'none', color: '#1976d2' }}
+				>
+					{item.number}
 				</Link>
 			),
 			sortable: true,
 		},
-		{ header: 'Data', accessor: (item: ServicesGroup) => item.date, sortable: true },
-		{ header: 'Serviço', accessor: (item: ServicesGroup) => item.serviceType, sortable: true },
-		{ header: 'Responsável', accessor: (item: ServicesGroup) => item.idResponsible, sortable: true },
-		{ header: 'Endereço', accessor: (item: ServicesGroup) => item.adress, sortable: true },
-		{ header: 'Bairro', accessor: (item: ServicesGroup) => item.neighborhood, sortable: true },
-		{ header: 'Status', accessor: (item: ServicesGroup) => item.status, sortable: true },
+		{
+			header: 'Data',
+			accessor: (item: ProtocolsGroup) => item.date,
+			sortable: true,
+		},
+		{
+			header: 'Serviço',
+			accessor: (item: ProtocolsGroup) => item.serviceType,
+			sortable: true,
+		},
+		{
+			header: 'Endereço',
+			accessor: (item: ProtocolsGroup) => item.adress,
+			sortable: true,
+		},
+		{
+			header: 'Bairro',
+			accessor: (item: ProtocolsGroup) => item.neighborhood,
+			sortable: true,
+		},
+		{
+			header: 'Status',
+			accessor: (item: ProtocolsGroup) => <BadgeStatus status={item.status} />,
+			sortable: true
+		},
+		{
+			header: 'Prioridade',
+			accessor: (item: ProtocolsGroup) => <BadgePriority idPriority={item.priority} />,
+			sortable: true
+		},
 
 		{
 			header: 'Ações',
-			accessor: (item: ServicesGroup) => {
-				const index = classes.findIndex(i => i.id === item.id);
+			accessor: (item: ProtocolsGroup) => {
+				const index = classes.findIndex((i) => i.number === item.number);
 				return (
-					<ActionsMenu
-						onEdit={() => ''}
-						onDelete={() => handleDelete(index)}
-					/>
+					<div style={{ display: 'flex', gap: '0.5rem' }}>
+						<button
+							className="btn btn-sm btn-primary"
+							onClick={() => handleEdit(index)}
+						>
+							<MdModeEditOutline />
+						</button>
+						<button
+							className="btn btn-sm btn-danger"
+							onClick={() => handleDelete(index)}
+						>
+							<MdDeleteOutline />
+						</button>
+					</div>
 				);
 			},
-		},
+		}
 	];
 
 	return (
 		<div>
 			<div className="header-page row">
-				<div className='col-3'>
-					<h2 className='title-page'>Serviços</h2>
-					<p className='url-page'>Dashboard / Serviços</p>
+				<div className="col-3">
+					<h2 className="title-page">Protocolos</h2>
+					<p className="url-page">Dashboard / Protocolo</p>
 				</div>
-				<div className='col-9 d-flex justify-content-end'>
-					<button className="btn btn-primary btn-md" onClick={() => ''}>
+				<div className="col-9 d-flex justify-content-end">
+					<NavLink
+						to={'/protocols/form'}
+						className="btn btn-primary btn-md"
+						onClick={() => ''}
+					>
 						+ Adicionar
-					</button>
+					</NavLink>
 				</div>
 			</div>
 
 			<div className="col-12">
-				<div className='card'>
+				<div className="card">
 					<DynamicTable data={classes} columns={columns} />
 				</div>
 			</div>

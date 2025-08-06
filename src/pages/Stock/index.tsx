@@ -3,8 +3,12 @@ import DynamicTable from '../../components/List/index.tsx';
 import Card from '../../components/Cards/Basic';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import BadgeStatus from "../../components/Badge/Status";
+import BadgePriority from "../../components/Badge/Priority";
+import {MdDeleteOutline, MdModeEditOutline} from "react-icons/md";
 
 type StockGroup = {
+	id: number;
 	name: string;
 	photo: string;
 	qtd: string;
@@ -13,40 +17,17 @@ type StockGroup = {
 };
 
 const initialClasses: StockGroup[] = [
-	{ name: 'Pneu', photo: 'https://i.pravatar.cc/50?u=1' , qtd: '44', lastInsert: "10/10/2024", status: 1 },
-	{ name: 'Lampada LED 80W', photo: 'https://i.pravatar.cc/50?u=1', qtd: '65', lastInsert: "02/06/2025", status: 1 },
-	{ name: 'Lampada LED 50W', photo: 'https://i.pravatar.cc/50?u=1', qtd: '655', lastInsert: "02/06/2025", status: 1 },
-	{ name: 'Parafuso', photo: 'https://i.pravatar.cc/50?u=1', qtd: '85', lastInsert: "17/07/2025", status: 1 },
-	{ name: 'Conector', photo: 'https://i.pravatar.cc/50?u=1', qtd: '256', lastInsert: "06/06/2025", status: 1 },
+	{ id: 1, name: 'Pneu', photo: 'https://i.pravatar.cc/50?u=1' , qtd: '44', lastInsert: "10/10/2024", status: 1 },
+	{ id: 2, name: 'Lampada LED 80W', photo: 'https://i.pravatar.cc/50?u=1', qtd: '65', lastInsert: "02/06/2025", status: 1 },
+	{ id: 3, name: 'Lampada LED 50W', photo: 'https://i.pravatar.cc/50?u=1', qtd: '655', lastInsert: "02/06/2025", status: 1 },
+	{ id: 4, name: 'Parafuso', photo: 'https://i.pravatar.cc/50?u=1', qtd: '85', lastInsert: "17/07/2025", status: 1 },
+	{ id: 5, name: 'Conector', photo: 'https://i.pravatar.cc/50?u=1', qtd: '256', lastInsert: "06/06/2025", status: 1 },
 ];
 
 type ActionsMenuProps = {
 	onEdit: () => void;
 	onDelete: () => void;
 };
-
-function ActionsMenu({ onEdit, onDelete }: ActionsMenuProps) {
-	const [open, setOpen] = useState(false);
-
-	const toggleMenu = () => setOpen(prev => !prev);
-	const handleAction = (action: () => void) => {
-		action();
-		setOpen(false);
-	};
-
-	return (
-		<div className="dropdown-wrapper">
-			<button className="action-button" onClick={toggleMenu}>⋮</button>
-			{open && (
-				<div className="dropdown-menu-list">
-					<div onClick={() => handleAction(onEdit)}>Editar</div>
-					<div onClick={() => handleAction(onDelete)} style={{ color: 'red' }}>Excluir</div>
-				</div>
-			)}
-		</div>
-	);
-}
-
 export default function ClassListPage() {
 	const [classes, setClasses] = useState<StockGroup[]>(initialClasses);
 
@@ -77,20 +58,33 @@ export default function ClassListPage() {
 		},
 		{ header: 'QTD', accessor: (item: StockGroup) => item.qtd, sortable: true },
 		{ header: 'Ultima Inclusão', accessor: (item: StockGroup) => item.lastInsert, sortable: true },
-		{ header: 'Status', accessor: (item: StockGroup) => item.status, sortable: true },
-
+		{
+			header: 'Status',
+			accessor: (item: StockGroup) => <BadgeStatus status={item.status} />,
+			sortable: true
+		},
 		{
 			header: 'Ações',
 			accessor: (item: StockGroup) => {
-				const index = classes.findIndex(i => i.name === item.name);
+				const index = classes.findIndex((i) => i.id === item.id);
 				return (
-					<ActionsMenu
-						onEdit={() => ''}
-						onDelete={() => handleDelete(index)}
-					/>
+					<div style={{ display: 'flex', gap: '0.5rem' }}>
+						<button
+							className="btn btn-sm btn-primary"
+							onClick={() => handleEdit(index)}
+						>
+							<MdModeEditOutline />
+						</button>
+						<button
+							className="btn btn-sm btn-danger"
+							onClick={() => handleDelete(index)}
+						>
+							<MdDeleteOutline />
+						</button>
+					</div>
 				);
 			},
-		},
+		}
 	];
 
 	return (

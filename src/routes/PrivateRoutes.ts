@@ -6,6 +6,7 @@ import Company from '../pages/Company';
 import CompanyView from '../pages/Company/View';
 
 import Stock from '../pages/Stock';
+import Kits from '../pages/Stock/kits/index.tsx';
 // import StockView from '../pages/Stock/View';
 
 import Protocols from '../pages/Protocols';
@@ -128,7 +129,7 @@ export const privateRoutes: RouteItem[] = [
 				name: 'Kits',
 				path: '/stock/kits',
 				icon: '',
-				component: Form,
+				component: Kits,
 				access: [0, 1],
 				visible: true,
 			},

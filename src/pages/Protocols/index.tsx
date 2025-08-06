@@ -12,7 +12,7 @@ type ProtocolsGroup = {
 	adress: string;
 	neighborhood: string;
 	serviceType: string;
-	priority: string;
+	priority: number;
 	status: number;
 };
 
@@ -23,7 +23,7 @@ const initialClasses: ProtocolsGroup[] = [
 		serviceType: 'Limpeza',
 		adress: 'Rua Arnaldo Gusi 44',
 		neighborhood: 'Xaxim',
-		priority: 'Urgente',
+		priority: 1,
 		status: 1,
 	},
 	{
@@ -32,7 +32,7 @@ const initialClasses: ProtocolsGroup[] = [
 		serviceType: 'Iluminação',
 		adress: 'Rua Arnaldo Gusi 44',
 		neighborhood: 'Xaxim',
-		priority: 'Urgente',
+		priority: 1,
 		status: 1,
 	},
 	{
@@ -41,7 +41,7 @@ const initialClasses: ProtocolsGroup[] = [
 		serviceType: 'Zeladoria',
 		adress: 'Rua Arnaldo Gusi 44',
 		neighborhood: 'Xaxim',
-		priority: 'Urgente',
+		priority: 1,
 		status: 1,
 	},
 	{
@@ -50,7 +50,7 @@ const initialClasses: ProtocolsGroup[] = [
 		serviceType: 'Poda de Arvore',
 		adress: 'Rua Arnaldo Gusi 44',
 		neighborhood: 'Xaxim',
-		priority: 'Urgente',
+		priority: 1,
 		status: 1,
 	},
 ];

@@ -2,6 +2,8 @@ import './styles.css';
 import DynamicTable from '../../components/List/index.tsx';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import {MdDeleteOutline, MdModeEditOutline} from "react-icons/md";
+import BadgeStatus from "../../components/Badge/Status";
 
 type CompanyGroup = {
 	id: number;
@@ -77,20 +79,34 @@ export default function ClassListPage() {
 		},
 		{ header: 'Endereço', accessor: (item: CompanyGroup) => item.adress, sortable: true },
 		{ header: 'Bairro', accessor: (item: CompanyGroup) => item.neighborhood, sortable: true },
-		{ header: 'Status', accessor: (item: CompanyGroup) => item.status, sortable: true },
+		{
+			header: 'Status',
+			accessor: (item: StockGroup) => <BadgeStatus status={item.status} />,
+			sortable: true
+		},
 
 		{
 			header: 'Ações',
-			accessor: (item: CompanyGroup) => {
-				const index = classes.findIndex(i => i.name === item.name);
+			accessor: (item: StockGroup) => {
+				const index = classes.findIndex((i) => i.id === item.id);
 				return (
-					<ActionsMenu
-						onEdit={() => ''}
-						onDelete={() => handleDelete(index)}
-					/>
+					<div style={{ display: 'flex', gap: '0.5rem' }}>
+						<button
+							className="btn btn-sm btn-primary"
+							onClick={() => handleEdit(index)}
+						>
+							<MdModeEditOutline />
+						</button>
+						<button
+							className="btn btn-sm btn-danger"
+							onClick={() => handleDelete(index)}
+						>
+							<MdDeleteOutline />
+						</button>
+					</div>
 				);
 			},
-		},
+		}
 	];
 
 	function handleOpenModal() {

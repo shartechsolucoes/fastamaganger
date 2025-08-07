@@ -10,36 +10,24 @@
     letter-spacing: 0.5px;
     transition: background-color 0.2s ease-in-out;
 }
+.bg-label-low {
+    background-color: #8ac149;
+    color: white;
+}
+.bg-label-medium {
+    background-color: #e5be11;
+    color: white;
+}
+.bg-label-high {
+    background-color: #fd9800;
+    color: black;
+}
+.bg-label-urgent {
+    background-color: #d64215;
+    color: black;
+}
+.bg-label-analysis {
+    background-color: #bcbcbc;
+    color: black;
+}
 
-.bg-label-success {
-    background-color: #4CAF50;
-    color: white;
-}
-.bg-label-error {
-    background-color: #F44336;
-    color: white;
-}
-.bg-label-warning {
-    background-color: #FFC107;
-    color: black;
-}
-.bg-label-aberto {
-    background-color: #FFC107;
-    color: black;
-}
-.bg-label-pendente {
-    background-color: #FF9800;
-    color: black;
-}
-.bg-label-aguardando {
-    background-color: #FFEB3B;
-    color: black;
-}
-.bg-label-finalizado {
-    background-color: #2196F3;
-    color: white;
-}
-.bg-label-default {
-    background-color: #9E9E9E;
-    color: white;
-}

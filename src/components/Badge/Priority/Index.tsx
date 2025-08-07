@@ -1,18 +1,20 @@
+import './styles.css';
+
 interface BadgeProps {
     idPriority: number;
 }
 const getPriorityInfo = (idPriority: number) => {
     switch (idPriority) {
         case 1:
-            return { colorClass: 'bg-label-error', label: 'Baixa' };
+            return { colorClass: 'bg-label-low', label: 'Baixa' };
         case 2:
-            return { colorClass: 'bg-label-error', label: 'Média' };
+            return { colorClass: 'bg-label-medium', label: 'Média' };
         case 3:
-            return { colorClass: 'bg-label-warning', label: 'Alta' };
+            return { colorClass: 'bg-label-high', label: 'Alta' };
         case 4:
-            return { colorClass: 'bg-label-success', label: 'Urgente' };
+            return { colorClass: 'bg-label-urgent', label: 'Urgente' };
         default:
-            return { colorClass: '', label: 'Proridade não Definida' };
+            return { colorClass: 'bg-label-analysis', label: 'Em Análise' };
     }
 };
 
